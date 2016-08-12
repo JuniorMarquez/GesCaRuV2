@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <h3 class="modal-title">Registrar asistencia</h3>
+</div>
+<div class="modal-body" ng-controller="SocioCtrl">
+
+
+            <div class="form-group">
+          
+                  <div class="row  col-sm-10" ><i class="icon-calendar"></i> Fecha de asistencia</div>
+                  
+                       <div class="row col-sm-8">
+                                 <p class="input-group"  >
+                                 <input type="text" class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="item.fechaAsistencia" is-open="opened" max-date="minDate"  datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true"  />
+                  <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                  </p>  
+                       </div>
+                                   
+                </div>
+
+            <div >
+            <textarea class="form-control" rows="1" name="observaciones"   ng-model="item.observaciones"placeholder="observaciones" required="true"></textarea>
+
+            </div>
+</div>
+<div class="modal-footer">                  
+    <button class="btn btn-default" ng-click="cancel()">Cancelar</button>
+    <button class="btn btn-primary" ng-click="okAsistencia(item)">OK</button>
+</div>

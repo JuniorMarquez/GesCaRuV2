@@ -1,0 +1,517 @@
+<!--hbox layout -->
+<script type="text/ng-template" id="modalAsistencia.html">
+            <div ng-include="'tpl/modalAsistencia.html'"></div>
+          </script>
+          <script type="text/ng-template" id="modalSumBano.html">
+            <div ng-include="'tpl/modalSumBano.html'"></div>
+          </script>
+           <script type="text/ng-template" id="modalConfirm.html">
+            <div ng-include="'tpl/modalConfirm.html'"></div>
+          </script>
+            <script type="text/ng-template" id="modalSumAlimento.html">
+            <div ng-include="'tpl/modalSumAlimento.html'"></div>
+          </script>
+           <script type="text/ng-template" id="modalSumMedicamento.html">
+            <div ng-include="'tpl/modalSumMedicamento.html'"></div>
+          </script>
+           <script type="text/ng-
+           template" id="modalTratamiento.html">
+            <div ng-include="'tpl/modalTratamiento.html'"></div>
+          </script>
+           <script type="text/ng-template" id="modalOperacionesCcp.html">
+            <div ng-include="'tpl/modalOperacionesCcp.html'"></div>
+          </script>
+<div class="hbox hbox-auto-xs hbox-auto-sm bg-light " ng-init="
+  app.settings.asideFixed = true;
+
+  app.settings.container = false;
+
+  app.hideAside = false;
+  app.hideFooter = true;
+
+
+   app.settings.asideFolded = true; 
+    app.settings.asideDock = false;
+
+
+
+
+
+
+ 
+ 
+  " ng-controller="SocioCtrl">
+
+  <!-- column -->
+  <div class="col w b-r">
+    <div class="vbox">
+      <div class="row-row">
+        <div class="cell scrollable hover">
+          <div class="cell-inner">
+            <div class="list-group no-radius no-border no-bg m-b-none">
+              <a class="list-group-item b-b" ng-dblclick="selectGroup({name:''})" ng-class="{'focus': (filter == '')}" ng-click="carga()">Tipo de usuario<!-- <span  tooltip-placement="bottom"  tooltip="Doble click para Actualizar" class="pull-right text-muted inline wrapper-xs m-r-sm"><i class="fa fa-question"></i></span> --></a>
+
+              <a ng-repeat="item in groups" ng-dblclick="editItem(item)" class="list-group-item m-l hover-anchor b-a no-select" ng-class="{'focus m-l-none': item.selected}" ng-click="selectGroup(item)">
+               <!--  <span ng-click='deleteGroup(item)' tooltip-placement="left" tooltip="Borrar" class="pull-right text-muted hover-action"><i class="fa fa-times"></i></span> -->
+                <span class="block m-l-n" ng-class="{'m-n': item.selected }">{{ item.name ? item.name : 'Untitled' }}</span>
+                <input type="text" class="form-control pos-abt" ng-show="item.editing" ng-blur="doneEditingGrupo(item)" ng-model="item.name" style="top:3px;left:2px;width:98%" ui-focus="item.editing">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper b-t">
+        <span tooltip="Doble click para Editar" class="pull-right text-muted inline wrapper-xs m-r-sm"><i class="fa fa-question"></i></span>
+        <a tooltip="Agregar tipo de usuario" href class="btn btn-sm btn-default" ng-click="createGroup()"><i class="fa fa-plus fa-fw m-r-xs"></i> Tipo</a>
+      </div>
+    </div>
+  </div>
+  <!-- /column -->
+  <!-- column -->
+  <div class="col w-lg lter b-r">
+    <div class="vbox">
+      <div class="wrapper-xs b-b">
+        <div class="input-group m-b-xxs">
+          <span class="input-group-addon input-sm no-border no-bg"><i class="icon-magnifier text-md m-t-xxs"></i></span>
+          <input type="text" class="form-control input-sm no-border no-bg text-md" placeholder="{{group.name ? group.name : 'Todos'}}" ng-model="query">
+        </div>
+      </div>
+      <div class="row-row">
+        <div class="cell scrollable hover">
+          <div class="cell-inner">
+            <div class="m-t-n-xxs">
+              <div class="list-group list-group-lg no-radius no-border no-bg m-b-none">
+                <a ng-repeat="item in items | filter:{tipoUsuario:filter} | filter:query | orderBy:'nombres'" class="list-group-item m-l" ng-class="{'select m-l-none': item.selected }" ng-click="selectItem(item)">
+                  <span class="block text-ellipsis m-l-n text-md" ng-class="{'m-l-none': item.selected }" popover="{{item.nombres}}" popover-trigger="mouseenter" popover-placement="bottom">
+                    {{ item.cedula }} <strong>{{ item.apellidos }} <!-- {{ item.apellidos }} --></strong>
+                    <span ng-hide="item.nombres || item.apellidos">sin nombre</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="text-center pos-abt w-full" style="top:50%;" ng-hide="(items | filter:{tipoUsuario:filter} | filter:query).length">Vacío</div>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper b-t text-center" >
+        <a tooltip="Agregar Socio" href class="btn btn-sm btn-default btn-addon" ng-click="createItem()" ng-show="items"><i class="fa fa-plus fa-fw m-r-xs"></i> Socio</a>
+      </div>
+    </div>
+  </div>
+  <!-- /column -->
+
+  <!-- column -->
+  <div class="col bg-white-only">
+    <div class="vbox">
+      <div class="wrapper-sm b-b">
+       <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+        <div class="m-t-n-xxs m-b-n-xxs m-l-xs">
+          <a  class="btn btn-xs btn-default pull-right" ng-hide="!item" ng-click="openConfirm(item)"><i tooltip="Borrar socio" tooltip-placement="left" class="fa fa-times"></i></a>
+          <a class="btn btn-xs btn-info" ng-hide="item.editing" ng-click="editItem(item)">Editar</a>
+          <a class="btn btn-xs btn-success" ng-show="item.editing" ng-click="doneEditingSocio(item)">Guardar cambios</a>
+        </div>
+      </div>
+      <div class="row-row">
+        <div class="cell">
+          <div class="cell-inner">
+            <div class="wrapper-lg">
+              <div class="hbox h-auto m-b-lg">
+                <div class="col text-center w-sm">
+                  <div class="thumb-lg avatar inline">
+                    <img src="img/display4.png" ng-show="item.nombres">
+
+
+
+                   <!--  <img ng-src="{{item.avatar}}" ng-show="item.avatar"> -->
+                  </div>
+                </div>
+                <div class="col-sm-10 v-middle font-thin">
+                 
+
+                  <div ng-hide="item.editing" class="h3" >{{item.nombres}} {{item.apellidos}} {{ item.mensajeNuevo }}</div>     
+                         
+                  <div ng-hide="item.editing || !item" class="h4" >C.I. {{item.cedula}} </div> 
+                         
+                  <div ng-show="item.editing" class="h3">
+                    <input type="text" placeholder="Nombres" class="form-control w-auto input-lg m-b-n-xxs font-bold" ng-model="item.nombres" >
+                    <input type="text" placeholder="Apellidos" class="form-control w-auto input-lg font-bold" ng-model="item.apellidos" > 
+                    <input type="text" placeholder="Cédula de Identidad" class="form-control w-auto input-lg font-bold" ng-model="item.cedula" > 
+                  </div>
+
+
+                  
+                  <!-- <div class="row list-icon" ng-show="item.sexo && !item.editing">
+
+                    <a tooltip="Ver Historial" href class="btn btn-sm btn-default btn-addon" ng-click="consultar(item)"><i class="fa fa-folder-open fa-fw m-r-xs"></i> Historial</a>
+
+                    <div class="col-md-3 col-sm-4" >
+                    <button ng-click="consultar(item)" class="btn btn-rounded btn-lg btn-icon btn-primary" tooltip="Ver historial del animal">
+                      <i  class="fa fa-fw fa-folder-open icon text-success"  ></i> 
+                    </button>
+                    </div>
+                  </div> -->
+                  <p></p><p></p>
+                    <div class="row form-group col-sm-20" ng-hide="!item.grupo && !item.editing">
+                      <div class="col-sm-8" ng-hide="item.editing">
+                        <i class="icon-users"></i> <strong> Grupo: </strong>
+                        <span class="form-control-static" >{{item.grupo}}</span>
+                       
+                      </div>
+                    </div> 
+                     <div class="row form-group col-sm-20" ng-hide="!item.raza && !item.editing" ng-hide="item.editing">
+                  <div class=" col-sm-8" ng-hide="item.editing">
+                    <i class="icon-social-dropbox"></i> <strong> Raza: </strong>
+                    <span class="form-control-static" >{{item.raza}} 
+                    </span>  
+                  </div>
+                
+                </div> 
+
+                   <div class="row form-group col-sm-20" ng-hide="!item.fechaNacimiento && !item.editing">              
+                    <div class="col-sm-12" ng-hide="item.editing">
+                      <i class="fa fa-dropbox"></i> <strong> Fecha de nacimiento: </strong>
+                        <span class="form-control-static" ng-hide="item.editing">{{item.fechaNacimiento|date:'dd/MM/yyyy'}} 
+                        </span> 
+                    </div>
+                   </div>
+
+
+                </div>
+                <div class="col  b-light row text-center no-gutter pull-right">
+                  <div class="row">
+
+ <div class="btn-group dropdown pull-right" dropdown ng-show="item.sexo && !item.editing">
+                      <button class="btn btn-success" dropdown-toggle tooltip="Opciones">
+                      <i class="fa fa-bars pull-right"></i> 
+                      <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu">
+                      <li><a href ng-click="consultar(item)">Ver historial</a></li>
+                     <!--  <li><a href >Ficha médica</a></li>
+                      <li><a href >Something else here</a></li>
+                      <li class="divider"></li>
+                      <li><a href>Separated link</a></li> -->
+                      </ul>
+                    </div>
+                   
+
+
+                  
+                  
+               
+                   
+                    </div> 
+               
+                 
+              
+                </div>
+<!--   <div class="form-group" ng-show="!item.editing && item.sexo && item.control && !item.mensajeNuevo">
+            
+                      <div class="col-sm-20">
+                     Secar<strong> / </strong> Ordeñar 
+                        <label  class="i-switch m-t-xs m-r"  popover="Cambiar entre ordeñar o secar a este animal" popover-trigger="mouseenter" popover-placement="bottom">
+                        <input type="checkbox" ng-model="item.estado" ng-click="doneEditingEstado(item)">
+                        <i></i>
+                        </label>
+                       
+                      </div>
+                      <div class="col-sm-20" ng-hide="!grupoValidado">
+                     Por preñar<strong> / </strong> Preñada 
+                        <label  class="i-switch bg-primary m-t-xs m-r"  popover="{{mensajePrenez}}" popover-trigger="mouseenter" popover-placement="bottom">
+                        <input type="checkbox" ng-model="item.prenez" ng-click="doneEditingPrenez(item)">
+                        <i></i>
+                        </label>
+                       
+                      </div>
+                    </div> -->
+              </div>
+<!-- ƈomienzo de acordion -->
+              <div class="col-lg-6" ng-show="item.nombres" >
+      <!-- accordion -->      
+      <div ng-controller="AccordionDemoCtrl">
+        <accordion close-others="oneAtATime">
+          <accordion-group heading="Datos personales" is-disabled="status.isFirstDisabled">
+          <!-- <accordion-group heading="Datos personales" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled"> -->
+            <p>
+            <div ng-show="!item.editing">
+              <div class="col-sm-4"> 
+                <b>Nacionalidad:</b> {{item.nacionalidad}}
+              </div>
+              <div class="col-sm-6"> 
+              <b>Estado civil:</b> {{item.estadoCivil}}
+              </div>
+            </div>
+            
+            </p>
+          </accordion-group>
+
+          <accordion-group heading="Datos de contacto"  is-disabled="status.isFirstDisabled">
+            <p>
+            <div ng-show="!item.editing">
+              
+              <div class="col-sm-6"> 
+                <b>Teléfono:</b> {{item.telefono}}
+              </div>
+              <div class="col-sm-6">
+              <b>Correo electrónico:</b>
+                {{item.correo}}
+              </div>
+              <div class="col-sm-10">
+                <b>Dirección:</b> 
+                {{item.direccion}}
+              </div>               
+            </div>
+            <div ng-show="item.editing" class="col-sm-6">
+            Teléfono
+            <input type="text" class="form-control input-sm"   placeholder="Teléfono"ng-model="item.telefono" style="" >
+            </div>
+            <div ng-show="item.editing" class="col-sm-6">
+            Correo electrónico
+            <input type="text" class="form-control input-sm"   placeholder="Correo"ng-model="item.correo" style="" >
+            </div>
+             <div ng-show="item.editing" class="col-sm-12">
+            Dirección
+            <textarea rows="2" class="form-control input-sm"   placeholder="Direccion" ng-model="item.direccion" style="" > </textarea>
+            </div>
+            
+            </p>
+          </accordion-group>
+          <accordion-group heading="Datos socioeconómicos"  is-disabled="status.isFirstDisabled">
+            <p>
+            <div ng-show="!item.editing">
+              <b>Ingreso mensual:</b> {{item.ingresoMensual}}</br>
+              <b>Profesión:</b> {{item.profesion}}</br>
+              <b>Grado de instrucción:</b> {{item.gradoDeInstruccion}}</br>
+              <b>Ocupación:</b> {{item.ocupacion}}</br>
+              <b>Orígen de ingresos:</b> {{item.origenDeIngresos}}</br>
+            </div>
+            <div ng-show="item.editing" class="col-sm-6">
+            Ingreso mensual
+            <input type="number" class="form-control input-sm"   placeholder=""ng-model="item.ingresoMensual" min="1">
+            </div>
+            <div ng-show="item.editing" class="col-sm-6">
+            Profesión
+            <input type="text" class="form-control input-sm"   placeholder="Profesión"ng-model="item.profesion" style="" >
+            </div>
+             <div ng-show="item.editing" class="col-sm-12">
+            Grado de instrucción
+            <input type="text" class="form-control input-sm"   placeholder="Grado de instrucción"ng-model="item.gradoDeInstruccion" style="" >
+            </div>
+             <div ng-show="item.editing" class="col-sm-12">
+            Ocupación
+            <input type="text" class="form-control input-sm"   placeholder="Ocupación"ng-model="item.ocupacion" style="" >
+            </div>
+             <div ng-show="item.editing" class="col-sm-12">
+            Orígen de ingresos
+            <input type="text" class="form-control input-sm"   placeholder="Origen de Ingresos"ng-model="item.origenDeIngresos" style="" >
+            </div>
+
+
+
+
+          </p>
+          </accordion-group>
+           <accordion-group heading="Datos de ingreso"  is-disabled="status.isFirstDisabled">
+            <p>
+            <div ng-show="!item.editing">
+              <div class="col-sm-6"> 
+                <b>Usuario:</b> {{item.usuario}}
+              </div>
+              <div class="col-sm-6"> 
+                <b>Contraseña:</b> {{item.pass}}
+              </div>
+            </div>
+           <div ng-show="item.editing" class="col-sm-6">
+            Usuario
+            <input type="text" class="form-control input-sm"   placeholder="Usuario"ng-model="item.usuario">
+            </div>
+            <div ng-show="item.editing" class="col-sm-6">
+            Contraseña
+            <input type="text" class="form-control input-sm"   placeholder="Contraseña"ng-model="item.pass" style="" >
+            </div>
+
+            
+            </p>
+          </accordion-group>          
+          <!-- <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+            {{group.content}}
+          </accordion-group> -->
+          <!-- <accordion-group heading="Dynamic body content">
+            <p>The body of the accordion group grows to fit the contents</p>
+              <button class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+              <div class="list-group m-t">
+                <div ng-repeat="item in items" class="list-group-item">{{item}}</div>
+              </div>
+          </accordion-group>
+          <accordion-group is-open="status.open" class="b-info">
+              <accordion-heading>
+                  I can have markup, too! <i class="pull-right fa fa-angle-right" ng-class="{'fa-angle-down': status.open, 'fa-angle-right': !status.open}"></i>
+              </accordion-heading>
+              This is just some content to illustrate fancy headings.
+          </accordion-group> -->
+        </accordion>
+        <!-- <label class="checkbox i-checks m-l-md m-b-md">
+          <input type="checkbox" ng-model="oneAtATime"><i></i>
+          Open only one at a time
+        </label> -->
+      </div>
+      <!-- / accordion -->
+
+    
+
+<!-- fin acordion -->
+
+              <div  class="m-b-md" ng-hide="!item">
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+       <!--  <button class='btn btn-default' ng-click="addAlert()">Add Alert</button> -->
+      </div>
+              <!-- fields -->
+
+              <div class="padder-v b-t b-light bg-light lter row text-center no-gutter" ng-show="item.editing">
+
+
+
+
+              <div class="row">
+                
+                
+
+               <!--  <div class="form-group col-sm-4" ng-hide="!item.sexo && !item.editing" ng-hide="item.editing">
+                <div class="row" ng-hide="!item.editing">
+                     <i class="icon-users" ></i> Sexo
+                </div>
+                <div class="row">
+                  <div class="btn-group" ng-show="item.editing">
+                    <label ng-change='sexado(item)'  class="btn btn-default" ng-model="item.sexo" btn-radio="'Hembra'">Hembra</label>
+                    <label ng-change='sexado(item)' class="btn btn-default" ng-model="item.sexo" btn-radio="'Macho'">Macho</label>
+                  </div>
+                </div>
+                </div> -->
+               <!--  <div class="form-group col-sm-4" ng-hide="!item.fechaNacimiento && !item.editing">
+          
+                  <div class="row  col-sm-10" ng-hide="!item.editing"><i class="icon-users"></i> Fecha de Nacimiento</div>
+                  
+                       <div class="row col-sm-8">
+                                 <p class="input-group"  >
+                                 <input ng-hide="!item.fechaNacimiento || !item.editing" type="text" class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="item.fechaNacimiento" is-open="opened" max-date="minDate"  datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true"  />
+                  <span class="input-group-btn">
+                  <button ng-hide="!item.fechaNacimiento || !item.editing" type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                  </p>  
+                       </div>
+                                   
+                </div> -->
+              <!--   <div class="form-group col-sm-4" ng-hide="!item.raza && !item.editing">
+                    <div class="col-sm-8" ng-show="item.editing">
+                      <i class="icon-music-tone " ng-show="item.editing"></i> Raza
+                 
+                      <ui-select ng-model="item.raza" theme="bootstrap" ng-show="item.editing">
+                        <ui-select-match placeholder="Raza...">{{$select.selected.nombre}}</ui-select-match>
+                        <ui-select-choices group-by="'nombre'" repeat="item.nombre as item in razas | filter: $select.search">
+                          <span ng-bind-html="item.nombre | highlight: $select.search"></span>
+                        
+                        </ui-select-choices>
+                      </ui-select>
+                    </div>
+                  </div> -->
+
+                <!--     <div class="form-group col-sm-4" ng-hide="!item.grupo && !item.editing">
+                  <div class="col-sm-8" ng-show="item.editing">
+                    <i class="icon-users"></i> Grupo
+                   
+                    <ui-select ng-model="item.grupo" theme="bootstrap" ng-show="item.editing">
+                      <ui-select-match placeholder="Grupo...">{{$select.selected.name}}</ui-select-match>
+                      <ui-select-choices group-by="'name'" repeat="item.name as item in groups | filter: $select.search">
+                        <span ng-bind-html="item.name | highlight: $select.search"></span>
+                      
+                      </ui-select-choices>
+                    </ui-select>
+                  </div>
+                </div>  -->
+
+              </div>
+               
+             <!--  <div class="row">
+              
+            
+
+
+              </div>  
+ -->
+
+                   
+
+
+                   
+                  
+
+        
+        
+
+
+                  <!-- <div ng-controller="AnimalCtrl"  style="visibility:hidden;" id="panel">
+                    <div class="panel-body" >
+                    <button class="btn btn-success" ng-click="open()">Open me!</button>
+                    <button class="btn btn-default" ng-click="open('lg')">Large modal</button>
+                    </div>
+                  </div> -->
+          
+
+              </div>
+              <div ng-show="item.nombres && !item.editing && !item.mensajeNuevo" >
+  
+                <div class="hbox text-center b-b b-light text-sm">  
+                       
+                  <a href class="col padder-v text-muted b-r b-light" ng-click="openAsistencia(item)">
+                    <i class="fa fa-flask block m-b-xs fa-2x" ></i>
+                    <span>Asistencia</span>
+                  </a>
+                  
+                  <a href class="col padder-v text-muted b-r b-light" ng-click="openCuentaAhorro(item)">
+                    <i class="fa fa-newspaper-o block m-b-xs fa-2x"></i>
+                    <span>Cuenta de ahorro</span>
+                  </a>
+                  <!--  <a href class="col padder-v text-muted" ng-click="openSumMedicamento(item)">
+                    <i class="fa fa-medkit block m-b-xs fa-2x"></i>
+                    <span>Medicamento</span>
+                  </a> -->
+                </div>
+                <div class="hbox text-center text-sm">          
+                 
+                   <a href class="col padder-v text-muted"  ng-click="openOperacionesCcp(item)">
+                    <i class="fa fa-cc block m-b-xs fa-2x"></i>
+                    <span>Operaciones CCP</span>
+                  </a>
+                  <a href class="col padder-v text-muted" ng-click="openTratamiento(item)">
+                    <i class="fa  fa-folder-open block m-b-xs fa-2x"></i>
+                    <span>Créditos</span>
+                  </a>
+                  <!--  <a ng-hide="item.prenez || sexado" href class="col padder-v text-muted" ng-click="openSalto(item)">
+                    <i class="fa fa-heart block m-b-xs fa-2x"></i>
+                    <span>Salto</span>
+                  </a> -->
+                  
+                 <!--  <a ng-hide="!item.prenez || sexado"href class="col padder-v text-muted">
+                    <i class="icon-link block m-b-xs fa-2x"></i>
+                    <span>Parto</span>
+                  </a> -->
+                </div>
+              </div>
+
+            <!--   <div class="thumb-lg avatar inline">
+                    <img ng-src="img/premioLechera.png" ng-show="item.avatar"/>
+
+
+                    <img ng-src="{{item.avatar}}" ng-show="item.avatar">
+                  </div> -->
+              <!-- / fields -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /column -->
+</div>
+
+<!-- /hbox layout
