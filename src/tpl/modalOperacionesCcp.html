@@ -1,5 +1,6 @@
 <div class="modal-header">
     <h3 class="modal-title">Operaciones Ccp</h3>
+    <b>Precio de CCP: </b>{{item.valorCcp}} 
 </div>
 
 <div class="panel-heading font-bold"></div>
@@ -9,6 +10,7 @@
       <div class="form-group col-sm-12" >
         <div class="col-sm-12" >
           <div class="row">
+         <!--  Id Socio: {{item.idSocio}} -->
             <div class="btn-group" >
               <label ng-change='sexado(item)'  class="btn btn-default" ng-model="item.tipoOperacion" btn-radio="'Compra'">Compra</label>
               <label ng-change='sexado(item)' class="btn btn-default" ng-model="item.tipoOperacion" btn-radio="'Traspaso'">Traspaso</label>
@@ -35,6 +37,25 @@
 
           <!-- <div class="row" ng-show="item.macho"> -->
           <div class="row" >
+            <div ng-show="item.tipoOperacion=='Compra'" >
+              <div class="col-sm-8">
+                  <b>Cantidad de Ccp: </b>
+                <input class="form-control "type="number" ng-change="calculoMonto(item)" ng-model="item.cantidad"placeholder="Cant." min="1">
+              </div>
+              <div ui-refresh="monto" class="col-sm-12">
+              <b>Monto por compra de CCP: </b>{{item.monto}}
+              </div>
+            </div>
+            <div ng-show="item.tipoOperacion=='Traspaso'" >
+              <div class="col-sm-8">
+              <b>Cantidad de Ccp: </b>
+                <input class="form-control "type="number" ng-change="calculoMonto(item)" ng-model="item.cantidad"placeholder="Cant." min="1">
+              </div>
+              <div ui-refresh="monto" class="col-sm-12">
+              <b>Monto por traspaso de CCP: </b>{{item.monto}}
+              </div>
+            </div>
+           
   <textarea class="form-control" rows="1" name="observaciones"   ng-model="item.observaciones"placeholder="observaciones" required="true"></textarea>
 
             

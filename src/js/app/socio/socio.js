@@ -2,33 +2,15 @@
 app.controller('SocioCtrl', ['$scope', '$state','$http', '$filter', '$modal', 'MyService', 'filterFilter', 'toaster',  function($scope,  $state ,$http, $filter,$modal, MyService, filterFilter, toaster) {
  
   $scope.toaster = {
-    // title: 'Exito',
-    // type: 'success',
-    // text: 'Animal puesto en ordeño',
-
-    // type2: 'warning',      
-    // text2: 'Animal sacado de ordeño',
-    // title2: 'Cuidado',
-
     type3: 'info',
     text3: 'El Socio ha sido borrado',
     title3: 'Información',
-    
     type4: 'success',
     text4: 'Socio agregado con exito',
     title4: 'Exito',
-    
     type5: 'info',
     text5: 'Socio editado con exito',
     title5: 'Información',
-    
-    // type6: 'info',
-    // text6: 'Estado de preñéz registrado con exito',
-    // title6: 'Información',
-    
-    // type7: 'warning',
-    // text7: 'El estado de preñez de este animal se ha anulado',
-    // title7: 'Cuidado',
   };
 
   $scope.filter = '';
@@ -70,17 +52,6 @@ app.controller('SocioCtrl', ['$scope', '$state','$http', '$filter', '$modal', 'M
   $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
   $scope.format = 'shortDate';
 
-  // $scope.carga = function (){
-  //   $http.get('http://localhost:1340/tipousuario/?idCaja='+MyService.data.idCaja).then(function (resp) {
-  //     $scope.groups = resp.data.results;
-  //   });
-  // };
-
-
-
-
-
-
 $scope.selectGroup2 = function(item){  
 MyService.data.luz=null; 
     MyService.data.grupo=item.grupo;
@@ -88,12 +59,9 @@ MyService.data.luz=null;
       item.selected = false;
     });
     $scope.group = item;
-    // $scope.group.selected = true;
     $scope.filter = item.name;
     $http.get('http://192.168.1.120:1340/socio').then(function (resp) {
-      $scope.items = resp.data.results;
-      // $scope.item = null;  
-      // $scope.item.selected = true;
+    $scope.items = resp.data.results;
     });
     $scope.selectItem2(MyService.data.socio);
   };
@@ -101,92 +69,30 @@ $scope.selectItem2 = function(item){
 
      $http.get('http://192.168.1.120:1340/socio').then(function (resp) {
       $scope.items = resp.data.results;
-      // $scope.item = null;  
-      // $scope.item.selected = true;
     });
     var identificador =item.id;
-        // var numero =item.idArete;
-        // var nombre =item.nombre;
-    // MyService.data.hembra = nombre;
-    //  MyService.data.numero = numero;
     MyService.data.identificador = identificador;
     angular.forEach($scope.items, function(item) {
       item.selected = true;
       item.editing = false;
     });
     $scope.item = item;
-    // if (item.sexo == 'Macho'){
-    //   $scope.sexado = true;
-    // }
-    // if (item.sexo == 'Hembra'){
-    //   $scope.sexado = false;
-    // }
-    //  if (item.grupo == 'Vacas'){
-    //   $scope.grupoValidado = true;
-    // }
- // if (item.grupo == 'Becerras'){
- //   $scope.alerts = [
- //  { type: 'danger', msg: 'Por su edad, este animal debería estar en el grupo de las Vacas' }
- //  ];
- //    }
-
-
-
-
-    // else{
-    //   $scope.grupoValidado = false;
-    // }
-
     $scope.item.selected = true;
     $http.get('http://192.168.1.120:1340/socio').then(function (resp) {
       $scope.socios = resp.data.results;
     });
-      
-    // var pas = item.id;
-    // $scope.animalesFiltradas = $scope.animales.filter(function (animal) {
-    //   return (animal.idAnimal == pas );
-    // });
-
   };
-// if ($state=='apps.animal'){
-
-
-// };
     if (MyService.data.luz){
         $scope.items = null;
-        $scope.item=null;
-        // var animal = MyService.data.animal;
-        // alert("animal:" +MyService.data.animal.id);
         $scope.selectGroup2(MyService.data.socio);
-        // $scope.selectItem(animal);
         MyService.data.luz=null;
         MyService.data.socio=null;
     };
-
-
-  // if (!$scope.items){
-  //    $scope.items={};
-  // };
-
-
-
-
-
-
-
-
-
-
-
-
   $scope.items={};
   
   $http.get('http://localhost:1340/tipousuario/?idCaja='+MyService.data.idCaja).then(function (resp) {
     $scope.groups = resp.data.results;
   });
-  // $scope.alerts = [
-  // { type: 'danger', msg: 'Por su edad, este animal debería estar en el grupo de las Vacas' }
-  // ];
 
   $scope.closeAlert = function(index) {
     $scope.alerts.splice(index, 1);
@@ -217,32 +123,6 @@ $scope.selectItem2 = function(item){
     }
   };
 
-  // $scope.consultar = function(item){
-  // MyService.data.animalConsultado = null;
-  // MyService.data.animalConsultado = item;
-  // if (MyService.data.animalConsultado.sexo==="Hembra"){
-  //   $state.go('apps.historicoAnimal');
-  //   }
-  // if (MyService.data.animalConsultado.sexo==="Macho"){
-  //   $state.go('apps.historicoAnimalMacho');
-  //   }
-  // };
-  // $scope.carga = function(){
-  //   $http.get('http://localhost:1340/grupo/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
-  //     $scope.groups = resp.data.results;
-  //   });
-  // };
-  // $http.get('http://localhost:1340/raza/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
-  //     $scope.razas = resp.data.results;
-  //   });
- // $scope.cargaAlimentos = function(){
- //      $http.get('http://localhost:1340/alimento/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
- //        $scope.alimentos = resp.data.results;
- //      });
- //    };
- //    $scope.cargaAlimentos();
-
-  
   $scope.openConfirm = function (item) {
     var identificador=item.id;
     MyService.data.identificador = identificador;
@@ -285,14 +165,69 @@ $scope.selectItem2 = function(item){
       $log.info('Modal dismissed at: ' + new Date());
     });
   };
-  $scope.openSumBano = function (item) {
+  $scope.validadorCuentaAhorro=function (item){
+
+
+     $http.get('http://localhost:1340/cuent/?idCaja='+MyService.data.idCaja).then(function (resp) {
+    $scope.cuentas = resp.data.results;
+        var validadorCuenta='false';
+    for (var i= 0; i < $scope.cuentas.length ; i++){
+            if  ($scope.cuentas[i].idSocio==item.id){
+              validadorCuenta = 'true';
+              var datosCuenta=$scope.cuentas[i];
+            }
+          }
+          if (validadorCuenta=='true'){ $scope.openCuentaAhorro(item,datosCuenta);}
+          if (validadorCuenta=='false'){
+            var datosCuenta=null;
+           $scope.openAperturaCuentaAhorro(item);}
+  });
+     
+        
+  };
+  $scope.openCuentaAhorro = function (item,datosCuenta) {
     var identificador=item.id;
     MyService.data.identificador = identificador;
       var modalInstance = $modal.open({
-        templateUrl: 'modalSumBano.html',
+        templateUrl: 'modalCuentaAhorro.html',
+        controller: 'ModalInstanceCtrl',
+        size: 'lg',
+        resolve: {
+          dato: function  () {
+            return item;
+            // body...
+          },
+          datosCuenta: function  () {
+            return datosCuenta;
+            // body...
+          },
+          items: function () {
+            return $scope.items;
+          }
+        }
+      });
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+  $scope.openAperturaCuentaAhorro = function (item,datosCuenta) {
+    var identificador=item.id;
+    MyService.data.identificador = identificador;
+      var modalInstance = $modal.open({
+        templateUrl: 'modalAperturaCuentaAhorro.html',
         controller: 'ModalInstanceCtrl',
         size: 'sm',
         resolve: {
+           dato: function  () {
+            return item;
+            // body...
+          },
+           datosCuenta: function  () {
+            return datosCuenta;
+            // body...
+          },
           items: function () {
             return $scope.items;
           }
@@ -344,6 +279,8 @@ $scope.selectItem2 = function(item){
   };
 
   $scope.openOperacionesCcp = function (item) {
+    $scope.item.valorCcp=MyService.data.valorCcp;
+    var datosCuenta=null;
     var identificador=item.id;
     MyService.data.identificador = identificador;
       var modalInstance = $modal.open({
@@ -351,6 +288,14 @@ $scope.selectItem2 = function(item){
         controller: 'ModalInstanceCtrl',
         size: 'sm',
         resolve: {
+           dato: function  () {
+            return item;
+            // body...
+          },
+           datosCuenta: function  () {
+            return datosCuenta;
+            // body...
+          },
           items: function () {
             return $scope.items;
           }
@@ -476,38 +421,16 @@ $scope.selectItem2 = function(item){
 
   $scope.selectItem = function(item){    
     var identificador =item.id;
-        // var numero =item.idArete;
-        // var nombre =item.nombre;
-    // MyService.data.hembra = nombre;
-    //  MyService.data.numero = numero;
     MyService.data.identificador = identificador;
     angular.forEach($scope.items, function(item) {
       item.selected = false;
       item.editing = false;
     });
     $scope.item = item;
-    // if (item.sexo == 'Macho'){
-    //   $scope.sexado = true;
-    // }
-    // if (item.sexo == 'Hembra'){
-    //   $scope.sexado = false;
-    // }
-    //  if (item.grupo == 'Vacas'){
-    //   $scope.grupoValidado = true;
-    // }
-    // else{
-    //   $scope.grupoValidado = false;
-    // }
-
     $scope.item.selected = true;
     $http.get('http://localhost:1340/socio').then(function (resp) {
       $scope.socios = resp.data.results;
     });
-      
-    // var pas = item.id;
-    // $scope.animalesFiltradas = $scope.animales.filter(function (animal) {
-    //   return (animal.idAnimal == pas );
-    // });
   };
 
   $scope.deleteItem = function(item){
@@ -537,35 +460,12 @@ $scope.selectItem2 = function(item){
     $scope.items.push(item);
     $scope.selectItem(item);
     $scope.item.editing = true;
-    // $scope.item.sexo = 'Hembra';
-    // $scope.item.fechaNacimiento = '.';
-    // $scope.item.estado = true;
-    // $scope.item.prenez = false;
-    // $scope.item.control=true;
     $scope.item.mensajeNuevo=null;
     $scope.item.idUsuario = MyService.data.idUsuario;
     $http.get('http://localhost:1340/grupo/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
     $scope.groups = resp.data.results;
     }); 
   };
-
-  // $scope.createItem = function(){
-  //   var item = {
-  //     avatar:'img/cow.png'
-  //   };
-  //   $scope.items.push(item);
-  //   $scope.selectItem(item);
-  //   $scope.item.editing = true;
-  //   $scope.item.sexo = 'Hembra';
-  //   $scope.item.fechaNacimiento = '.';
-  //   $scope.item.estado = true;
-  //   $scope.item.prenez = false;
-  //   $scope.item.control=true;
-  //   $scope.item.idUsuario = MyService.data.idUsuario;
-  //   $http.get('http://localhost:1340/grupo/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
-  //   $scope.groups = resp.data.results;
-  //   }); 
-  // };
   
   $scope.editItem = function(item){
     if(item && item.selected){
@@ -596,19 +496,9 @@ $scope.selectItem2 = function(item){
     $scope.socios = null;
   };
 
-  // $scope.sexado =function (item){
-  //   if (item.sexo=='Hembra'){item.atavar='img/cow.png';
-  //     item.control=true;
-  //   } 
-  //   if (item.sexo=='Macho'){item.atavar='img/bull.png';
-  //     item.control=false;
-  //   }
-
-  // }
   $scope.doneEditingSocio = function(item){
     var socioAct = {};
-    // if (item.sexo =='Hembra'){socioAct.avatar='img/cow.png';item.avatar='img/cow.png';socioAct.control=true;}
-    // if (item.sexo =='Macho'){socioAct.avatar='img/bull.png';item.avatar='img/bull.png';socioAct.control=false;}
+   
     MyService.data.idenSocio=item.id;
     
     socioAct.nombres=item.nombres;
@@ -622,6 +512,7 @@ $scope.selectItem2 = function(item){
     socioAct.direccion=item.direccion;
     socioAct.telefono=item.telefono;
     socioAct.correo=item.correo;
+    socioAct.idCaja=MyService.data.idCaja;
 
     socioAct.ingresoMensual=item.ingresoMensual;
     socioAct.profesion=item.profesion;
@@ -631,18 +522,6 @@ $scope.selectItem2 = function(item){
 
     socioAct.usuario=item.usuario;
     socioAct.pass=item.pass;
-// if (item.grupo=='Vacas'){
-//   item.estado=false;
-//   socioAct.estado=item.estado;
-// };
-// if (item.grupo!='Vacas'){
-//   item.estado=null;
-//   socioAct.estado=item.estado;
-//    socioAct.control=false;
-// };
-    // socioAct.estado=item.estado;
-    // socioAct.prenez=item.prenez;
-    // socioAct.sexo=item.sexo;
     if (MyService.data.idenSocio){
       $scope.pop4();
       $http.put('http://localhost:1340/socio/'+MyService.data.idenSocio , socioAct)
@@ -657,68 +536,8 @@ $scope.selectItem2 = function(item){
     $http.get('http://localhost:1340/socio').then(function (resp) {
       $scope.app.states = resp.data.results;
     });
-    // $scope.items = null;
-    // $scope.socios = null;
-    // $scope.item=null;
+  
     item.editing = false;
   };
-  // $scope.doneEditingEstado = function(item){
-  //   $scope.pop();
-  //   var animalAct = {};
-  //   if (item.sexo =='Hembra'){animalAct.avatar='img/cow.png';item.avatar='img/cow.png';}
-  //   if (item.sexo =='Macho'){animalAct.avatar='img/bull.png';item.avatar='img/bull.png';}
-  //   MyService.data.idenSocio=item.id;
-  //   animalAct.idArete=item.idArete;
-  //   animalAct.nombre=item.nombre;
-  //   animalAct.idUsuario=item.idUsuario;
-  //   animalAct.grupo=item.grupo;
-  //   animalAct.raza=item.raza;
-  //   animalAct.estado=item.estado;
-  //   animalAct.prenez=item.prenez;
-  //   animalAct.sexo=item.sexo;
-  //   if (MyService.data.idenSocio){
-  //     $http.put('http://localhost:1340/animal/'+MyService.data.idenSocio , animalAct)
-  //   }
-  //   else {
-  //     $http.post('http://localhost:1340/animal/', animalAct)
-  //   }
-  //   $http.get('http://localhost:1340/grupo/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
-  //     $scope.groups = resp.data.results;
-  //   });
-  //   $http.get('http://localhost:1340/animal/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
-  //     $scope.app.states = resp.data.results;
-  //   });
-  //   $scope.animales = null;
-  //   item.editing = false;
-  // };
-
-  // $scope.doneEditingPrenez = function(item){
-  //   $scope.pop6();
-  //   var animalAct = {};
-  //   if (item.sexo =='Hembra'){animalAct.avatar='img/cow.png';item.avatar='img/cow.png';}
-  //   if (item.sexo =='Macho'){animalAct.avatar='img/bull.png';item.avatar='img/bull.png';}
-  //   MyService.data.idenSocio=item.id;
-  //   animalAct.idArete=item.idArete;
-  //   animalAct.nombre=item.nombre;
-  //   animalAct.idUsuario=item.idUsuario;
-  //   animalAct.grupo=item.grupo;
-  //   animalAct.raza=item.raza;
-  //   animalAct.estado=item.estado;
-  //   animalAct.prenez=item.prenez;
-  //   animalAct.sexo=item.sexo;
-  //   if (MyService.data.idenSocio){
-  //     $http.put('http://localhost:1340/animal/'+MyService.data.idenSocio , animalAct)
-  //   }
-  //   else {
-  //     $http.post('http://localhost:1340/animal/', animalAct)
-  //   }
-  //   $http.get('http://localhost:1340/grupo/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
-  //     $scope.groups = resp.data.results;
-  //   });
-  //   $http.get('http://localhost:1340/animal/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
-  //     $scope.app.states = resp.data.results;
-  //   });
-  //   $scope.animales = null;
-  //   item.editing = false;
-  // };
+ 
 }]);

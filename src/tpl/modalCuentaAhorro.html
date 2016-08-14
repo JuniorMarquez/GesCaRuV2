@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h3 class="modal-title">Cuenta de ahorro</h3><b>Titular: </b>
+          {{item.datosCuenta.nombres}} {{item.datosCuenta.apellidos}}
+          </br> 
+          <b>Número de Cuenta: </b>
+     {{item.datosCuenta.numeroCuenta}} 
+
+</div>
+
+<div class="panel-heading font-bold"></div>
+  <div class="panel-body">
+    <form class="bs-example form-horizontal">
+<!-- <div class="modal-body"> -->
+      <div class="form-group col-sm-12" >
+        <div class="col-sm-12" >
+        
+          <div class="row" ng-show="item.descripcion">
+  <textarea class="form-control" rows="1" name="observaciones"   ng-model="item.observaciones"placeholder="observaciones" required="true"></textarea>
+
+            
+          <!--   <input placeholder="observ"type="text" class="form-control" ng-model="item.observ" id="observ"> -->
+          </div>
+        </div>
+      </div>  
+<!-- <div class="row" > -->
+    
+<!-- </div> -->
+<!-- </div> -->
+          </form>
+  </div>
+<div class="modal-footer">                  
+          <button class="btn btn-default" ng-click="cancel()">Salir</button>
+         <!--  <button class="btn btn-primary" ng-click="okSumAlimento(item)">OK</button> -->
+      </div>
+

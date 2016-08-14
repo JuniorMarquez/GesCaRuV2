@@ -21,6 +21,11 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', 'MyService'
                 // vm.tipoUsuario= vm.paises[0].tipoUsuario;
                 // vm.identificador=vm.paises[0].id;
                 // vm.dato2= vm.paises[0].pass;
+                $http.get('http://localhost:1340/config/?idCaja='+$scope.datos.idCaja).success(function(respuesta){
+                 $scope.configuracion = respuesta.results[0];
+                 MyService.data.valorCcp=$scope.configuracion.precioCcp;
+                
+                });
                  if ($scope.datos.correo == $scope.user.correo && $scope.datos.pass == $scope.user.pass)
                 
                     {

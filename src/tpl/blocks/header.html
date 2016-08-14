@@ -1,8 +1,8 @@
      <script type="text/ng-template" id="modalBano.html">
             <div ng-include="'tpl/modalBano.html'"></div>
           </script>
-           <script type="text/ng-template" id="modalMedicamento.html">
-            <div ng-include="'tpl/modalMedicamento.html'"></div>
+           <script type="text/ng-template" id="modalDeposito.html">
+            <div ng-include="'tpl/modalDeposito.html'"></div>
           </script>
            <script type="text/ng-template" id="modalAlimento.html">
             <div ng-include="'tpl/modalAlimento.html'"></div>
@@ -46,21 +46,21 @@
         <ul class="nav navbar-nav hidden-sm">
           <li class="dropdown pos-stc" dropdown>
             <a href class="dropdown-toggle" dropdown-toggle>
-              <span><i class="fa fa-cubes" tooltip-placement="bottom" tooltip="Gestiona tus insumos"></i></span> 
+              <span><i class="fa fa-bolt text-success " tooltip-placement="bottom" tooltip="Accesos rapidos a operaciones"></i></span> 
               <span class="caret"></span>
             </a>
             <div class="dropdown-menu wrapper w-full bg-white" ng-controller="FlotChartDemoCtrl">
               <div class="row">
                 <div class="col-sm-4">
-                  <div class="m-l-xs m-t-xs m-b-xs font-bold">Medicamentos <span class="badge badge-sm bg-success">10</span></div>
+                  <div class="m-l-xs m-t-xs m-b-xs font-bold">Operaciones Cuenta de ahorro <!-- <span class="badge badge-sm bg-success">10</span> --></div>
                   <div class="row">
                     <div class="col-xs-12">
                       <ul class="list-unstyled l-h-2x">
                         <li>
-                          <a ng-click="openMedicamento()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Agregar medicamento</a>
+                          <a ng-click="openDeposito()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Registrar depósito</a>
                         </li>
                         <li>
-                          <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Ver listado</a>
+                          <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Registar retiro</a>
                         </li>
                         
                       </ul>
@@ -69,17 +69,17 @@
                   </div>
                 </div>
                 <div class="col-sm-4" >
-                  <div class="m-l-xs m-t-xs m-b-xs font-bold">Baños <span class="badge badge-sm bg-primary">10</span></div>
+                  <div class="m-l-xs m-t-xs m-b-xs font-bold">Operaciones de crédito <!-- <span class="badge badge-sm bg-primary">10</span> --></div>
                   <div class="row">
                     <div class="col-xs-12">
                       <ul class="list-unstyled l-h-2x">
                         <li>
-                          <a ng-click="openBano()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs" ></i>Agregar baño</a>
+                          <a ng-click="openBano()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs" ></i>Registrar nueva solicitud</a>
                         </li>
                         <li>
-                          <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Ver listado</a>
+                          <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Registrar pago</a>
                         </li>
-
+                        
                         
                       </ul>
                     </div>
@@ -87,16 +87,16 @@
                   </div>
                 </div>
                 <div class="col-sm-4">
-                  <div class="m-l-xs m-t-xs m-b-xs font-bold">Alimentos <span class="badge badge-sm bg-danger">13</span></div>
+                  <div class="m-l-xs m-t-xs m-b-xs font-bold">Operaciones CCP <!-- <span class="badge badge-sm bg-danger">13</span> --></div>
                   <div class="row">
                     <div class="col-xs-12">
                       <ul class="list-unstyled l-h-2x">
                         <li>
-                          <a ng-click="openAlimento()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Agregar alimento</a>
+                          <a ng-click="openAlimento()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Registrar compra o traspaso de CCP</a>
                         </li>
-                        <li>
+                        <!-- <li>
                           <a ng-click="openListadoAlimentos()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Ver listado</a>
-                        </li>
+                        </li> -->
                         
                       </ul>
                     </div>
@@ -104,36 +104,36 @@
                   </div>
                 </div>
                  <div class="col-sm-4">
-                  <div class="m-l-xs m-t-xs m-b-xs font-bold">Tipos de Medicamento
+                 <!--  <div class="m-l-xs m-t-xs m-b-xs font-bold">Tipos de Medicamento
 
  <button class="btn btn-dark btn-xs" tooltip-placement="bottom" tooltip="Ver listado"><i class="fa fa-bars"></i></button>
                            <button class="btn btn-xs btn-default" tooltip-placement="bottom" tooltip="Agregar tipo de baño">
           <i class="fa fa-plus text"></i>
          
         </button>
-                  </div>
+                  </div> -->
                 
                 </div>
                 <div class="col-sm-4">
-                  <div class="m-l-xs m-t-xs m-b-xs font-bold">Tipos de Baños
+                 <!--  <div class="m-l-xs m-t-xs m-b-xs font-bold">Tipos de Baños
 
  <button class="btn btn-dark btn-xs" tooltip-placement="bottom" tooltip="Ver listado"><i class="fa fa-bars"></i></button>
                            <button class="btn btn-xs btn-default" tooltip-placement="bottom" tooltip="Agregar tipo de baño">
           <i class="fa fa-plus text"></i>
          
         </button>
-                  </div>
+                  </div> -->
                 
                 </div>
                 <div class="col-sm-4">
-                  <div class="m-l-xs m-t-xs m-b-xs font-bold">Tipos de Alimento
+                 <!--  <div class="m-l-xs m-t-xs m-b-xs font-bold">Tipos de Alimento
 
  <button class="btn btn-dark btn-xs" tooltip-placement="bottom" tooltip="Ver listado"><i class="fa fa-bars"></i></button>
                            <button class="btn btn-xs btn-default" tooltip-placement="bottom" tooltip="Agregar tipo de baño">
           <i class="fa fa-plus text"></i>
          
         </button>
-                  </div>
+                  </div> -->
                 
                 </div>
                <!--  <div class="col-sm-4 b-l b-light">

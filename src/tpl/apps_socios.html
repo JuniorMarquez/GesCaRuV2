@@ -2,8 +2,11 @@
 <script type="text/ng-template" id="modalAsistencia.html">
             <div ng-include="'tpl/modalAsistencia.html'"></div>
           </script>
-          <script type="text/ng-template" id="modalSumBano.html">
-            <div ng-include="'tpl/modalSumBano.html'"></div>
+          <script type="text/ng-template" id="modalCuentaAhorro.html">
+            <div ng-include="'tpl/modalCuentaAhorro.html'"></div>
+          </script>
+          <script type="text/ng-template" id="modalAperturaCuentaAhorro.html">
+            <div ng-include="'tpl/modalAperturaCuentaAhorro.html'"></div>
           </script>
            <script type="text/ng-template" id="modalConfirm.html">
             <div ng-include="'tpl/modalConfirm.html'"></div>
@@ -23,23 +26,11 @@
           </script>
 <div class="hbox hbox-auto-xs hbox-auto-sm bg-light " ng-init="
   app.settings.asideFixed = true;
-
   app.settings.container = false;
-
   app.hideAside = false;
   app.hideFooter = true;
-
-
-   app.settings.asideFolded = true; 
-    app.settings.asideDock = false;
-
-
-
-
-
-
- 
- 
+  app.settings.asideFolded = true; 
+  app.settings.asideDock = false;
   " ng-controller="SocioCtrl">
 
   <!-- column -->
@@ -49,10 +40,9 @@
         <div class="cell scrollable hover">
           <div class="cell-inner">
             <div class="list-group no-radius no-border no-bg m-b-none">
-              <a class="list-group-item b-b" ng-dblclick="selectGroup({name:''})" ng-class="{'focus': (filter == '')}" ng-click="carga()">Tipo de usuario<!-- <span  tooltip-placement="bottom"  tooltip="Doble click para Actualizar" class="pull-right text-muted inline wrapper-xs m-r-sm"><i class="fa fa-question"></i></span> --></a>
+              <a class="list-group-item b-b" ng-dblclick="selectGroup({name:''})" ng-class="{'focus': (filter == '')}" ng-click="carga()">Tipo de usuario</a>
 
               <a ng-repeat="item in groups" ng-dblclick="editItem(item)" class="list-group-item m-l hover-anchor b-a no-select" ng-class="{'focus m-l-none': item.selected}" ng-click="selectGroup(item)">
-               <!--  <span ng-click='deleteGroup(item)' tooltip-placement="left" tooltip="Borrar" class="pull-right text-muted hover-action"><i class="fa fa-times"></i></span> -->
                 <span class="block m-l-n" ng-class="{'m-n': item.selected }">{{ item.name ? item.name : 'Untitled' }}</span>
                 <input type="text" class="form-control pos-abt" ng-show="item.editing" ng-blur="doneEditingGrupo(item)" ng-model="item.name" style="top:3px;left:2px;width:98%" ui-focus="item.editing">
               </a>
@@ -137,19 +127,6 @@
                     <input type="text" placeholder="Apellidos" class="form-control w-auto input-lg font-bold" ng-model="item.apellidos" > 
                     <input type="text" placeholder="Cédula de Identidad" class="form-control w-auto input-lg font-bold" ng-model="item.cedula" > 
                   </div>
-
-
-                  
-                  <!-- <div class="row list-icon" ng-show="item.sexo && !item.editing">
-
-                    <a tooltip="Ver Historial" href class="btn btn-sm btn-default btn-addon" ng-click="consultar(item)"><i class="fa fa-folder-open fa-fw m-r-xs"></i> Historial</a>
-
-                    <div class="col-md-3 col-sm-4" >
-                    <button ng-click="consultar(item)" class="btn btn-rounded btn-lg btn-icon btn-primary" tooltip="Ver historial del animal">
-                      <i  class="fa fa-fw fa-folder-open icon text-success"  ></i> 
-                    </button>
-                    </div>
-                  </div> -->
                   <p></p><p></p>
                     <div class="row form-group col-sm-20" ng-hide="!item.grupo && !item.editing">
                       <div class="col-sm-8" ng-hide="item.editing">
@@ -158,72 +135,24 @@
                        
                       </div>
                     </div> 
-                     <div class="row form-group col-sm-20" ng-hide="!item.raza && !item.editing" ng-hide="item.editing">
-                  <div class=" col-sm-8" ng-hide="item.editing">
-                    <i class="icon-social-dropbox"></i> <strong> Raza: </strong>
-                    <span class="form-control-static" >{{item.raza}} 
-                    </span>  
-                  </div>
-                
-                </div> 
-
-                   <div class="row form-group col-sm-20" ng-hide="!item.fechaNacimiento && !item.editing">              
-                    <div class="col-sm-12" ng-hide="item.editing">
-                      <i class="fa fa-dropbox"></i> <strong> Fecha de nacimiento: </strong>
-                        <span class="form-control-static" ng-hide="item.editing">{{item.fechaNacimiento|date:'dd/MM/yyyy'}} 
-                        </span> 
-                    </div>
-                   </div>
-
-
                 </div>
                 <div class="col  b-light row text-center no-gutter pull-right">
                   <div class="row">
-
- <div class="btn-group dropdown pull-right" dropdown ng-show="item.sexo && !item.editing">
+                    <div class="btn-group dropdown pull-right" dropdown ng-show="item.sexo && !item.editing">
                       <button class="btn btn-success" dropdown-toggle tooltip="Opciones">
                       <i class="fa fa-bars pull-right"></i> 
                       <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu">
-                      <li><a href ng-click="consultar(item)">Ver historial</a></li>
-                     <!--  <li><a href >Ficha médica</a></li>
-                      <li><a href >Something else here</a></li>
-                      <li class="divider"></li>
-                      <li><a href>Separated link</a></li> -->
+                      <li>
+                      <a href ng-click="consultar(item)">Ver historial
+                      </a>
+                      </li>
+          
                       </ul>
                     </div>
-                   
-
-
-                  
-                  
-               
-                   
-                    </div> 
-               
-                 
-              
-                </div>
-<!--   <div class="form-group" ng-show="!item.editing && item.sexo && item.control && !item.mensajeNuevo">
-            
-                      <div class="col-sm-20">
-                     Secar<strong> / </strong> Ordeñar 
-                        <label  class="i-switch m-t-xs m-r"  popover="Cambiar entre ordeñar o secar a este animal" popover-trigger="mouseenter" popover-placement="bottom">
-                        <input type="checkbox" ng-model="item.estado" ng-click="doneEditingEstado(item)">
-                        <i></i>
-                        </label>
-                       
-                      </div>
-                      <div class="col-sm-20" ng-hide="!grupoValidado">
-                     Por preñar<strong> / </strong> Preñada 
-                        <label  class="i-switch bg-primary m-t-xs m-r"  popover="{{mensajePrenez}}" popover-trigger="mouseenter" popover-placement="bottom">
-                        <input type="checkbox" ng-model="item.prenez" ng-click="doneEditingPrenez(item)">
-                        <i></i>
-                        </label>
-                       
-                      </div>
-                    </div> -->
+                  </div> 
+               </div>
               </div>
 <!-- ƈomienzo de acordion -->
               <div class="col-lg-6" ng-show="item.nombres" >
@@ -333,27 +262,9 @@
             
             </p>
           </accordion-group>          
-          <!-- <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
-            {{group.content}}
-          </accordion-group> -->
-          <!-- <accordion-group heading="Dynamic body content">
-            <p>The body of the accordion group grows to fit the contents</p>
-              <button class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
-              <div class="list-group m-t">
-                <div ng-repeat="item in items" class="list-group-item">{{item}}</div>
-              </div>
-          </accordion-group>
-          <accordion-group is-open="status.open" class="b-info">
-              <accordion-heading>
-                  I can have markup, too! <i class="pull-right fa fa-angle-right" ng-class="{'fa-angle-down': status.open, 'fa-angle-right': !status.open}"></i>
-              </accordion-heading>
-              This is just some content to illustrate fancy headings.
-          </accordion-group> -->
+   
         </accordion>
-        <!-- <label class="checkbox i-checks m-l-md m-b-md">
-          <input type="checkbox" ng-model="oneAtATime"><i></i>
-          Open only one at a time
-        </label> -->
+       
       </div>
       <!-- / accordion -->
 
@@ -376,85 +287,7 @@
                 
                 
 
-               <!--  <div class="form-group col-sm-4" ng-hide="!item.sexo && !item.editing" ng-hide="item.editing">
-                <div class="row" ng-hide="!item.editing">
-                     <i class="icon-users" ></i> Sexo
-                </div>
-                <div class="row">
-                  <div class="btn-group" ng-show="item.editing">
-                    <label ng-change='sexado(item)'  class="btn btn-default" ng-model="item.sexo" btn-radio="'Hembra'">Hembra</label>
-                    <label ng-change='sexado(item)' class="btn btn-default" ng-model="item.sexo" btn-radio="'Macho'">Macho</label>
-                  </div>
-                </div>
-                </div> -->
-               <!--  <div class="form-group col-sm-4" ng-hide="!item.fechaNacimiento && !item.editing">
-          
-                  <div class="row  col-sm-10" ng-hide="!item.editing"><i class="icon-users"></i> Fecha de Nacimiento</div>
-                  
-                       <div class="row col-sm-8">
-                                 <p class="input-group"  >
-                                 <input ng-hide="!item.fechaNacimiento || !item.editing" type="text" class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="item.fechaNacimiento" is-open="opened" max-date="minDate"  datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true"  />
-                  <span class="input-group-btn">
-                  <button ng-hide="!item.fechaNacimiento || !item.editing" type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                  </span>
-                  </p>  
-                       </div>
-                                   
-                </div> -->
-              <!--   <div class="form-group col-sm-4" ng-hide="!item.raza && !item.editing">
-                    <div class="col-sm-8" ng-show="item.editing">
-                      <i class="icon-music-tone " ng-show="item.editing"></i> Raza
-                 
-                      <ui-select ng-model="item.raza" theme="bootstrap" ng-show="item.editing">
-                        <ui-select-match placeholder="Raza...">{{$select.selected.nombre}}</ui-select-match>
-                        <ui-select-choices group-by="'nombre'" repeat="item.nombre as item in razas | filter: $select.search">
-                          <span ng-bind-html="item.nombre | highlight: $select.search"></span>
-                        
-                        </ui-select-choices>
-                      </ui-select>
-                    </div>
-                  </div> -->
-
-                <!--     <div class="form-group col-sm-4" ng-hide="!item.grupo && !item.editing">
-                  <div class="col-sm-8" ng-show="item.editing">
-                    <i class="icon-users"></i> Grupo
-                   
-                    <ui-select ng-model="item.grupo" theme="bootstrap" ng-show="item.editing">
-                      <ui-select-match placeholder="Grupo...">{{$select.selected.name}}</ui-select-match>
-                      <ui-select-choices group-by="'name'" repeat="item.name as item in groups | filter: $select.search">
-                        <span ng-bind-html="item.name | highlight: $select.search"></span>
-                      
-                      </ui-select-choices>
-                    </ui-select>
-                  </div>
-                </div>  -->
-
               </div>
-               
-             <!--  <div class="row">
-              
-            
-
-
-              </div>  
- -->
-
-                   
-
-
-                   
-                  
-
-        
-        
-
-
-                  <!-- <div ng-controller="AnimalCtrl"  style="visibility:hidden;" id="panel">
-                    <div class="panel-body" >
-                    <button class="btn btn-success" ng-click="open()">Open me!</button>
-                    <button class="btn btn-default" ng-click="open('lg')">Large modal</button>
-                    </div>
-                  </div> -->
           
 
               </div>
@@ -467,14 +300,11 @@
                     <span>Asistencia</span>
                   </a>
                   
-                  <a href class="col padder-v text-muted b-r b-light" ng-click="openCuentaAhorro(item)">
+                  <a href class="col padder-v text-muted b-r b-light" ng-click="validadorCuentaAhorro(item)">
                     <i class="fa fa-newspaper-o block m-b-xs fa-2x"></i>
                     <span>Cuenta de ahorro</span>
                   </a>
-                  <!--  <a href class="col padder-v text-muted" ng-click="openSumMedicamento(item)">
-                    <i class="fa fa-medkit block m-b-xs fa-2x"></i>
-                    <span>Medicamento</span>
-                  </a> -->
+
                 </div>
                 <div class="hbox text-center text-sm">          
                  
@@ -486,25 +316,11 @@
                     <i class="fa  fa-folder-open block m-b-xs fa-2x"></i>
                     <span>Créditos</span>
                   </a>
-                  <!--  <a ng-hide="item.prenez || sexado" href class="col padder-v text-muted" ng-click="openSalto(item)">
-                    <i class="fa fa-heart block m-b-xs fa-2x"></i>
-                    <span>Salto</span>
-                  </a> -->
-                  
-                 <!--  <a ng-hide="!item.prenez || sexado"href class="col padder-v text-muted">
-                    <i class="icon-link block m-b-xs fa-2x"></i>
-                    <span>Parto</span>
-                  </a> -->
+                
                 </div>
               </div>
 
-            <!--   <div class="thumb-lg avatar inline">
-                    <img ng-src="img/premioLechera.png" ng-show="item.avatar"/>
-
-
-                    <img ng-src="{{item.avatar}}" ng-show="item.avatar">
-                  </div> -->
-              <!-- / fields -->
+       
             </div>
           </div>
         </div>

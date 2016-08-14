@@ -97,18 +97,28 @@
   }])
   ;
 
-  app.controller('ModalInstanceCtrl', ['$scope', '$http', '$modalInstance', 'items', 'MyService', function($scope, $http, $modalInstance, items, MyService) {
+  app.controller('ModalInstanceCtrl', ['$scope', '$http', '$modalInstance', 'items', 'MyService', 'dato','datosCuenta', function($scope, $http, $modalInstance, items, MyService, dato,datosCuenta) {
     // $scope.item={};
     // $scope.items = items;
     // $scope.selected = {
     //   item: $scope.items[0]
     // };
+     // alert("dato: "+MyService.data.valorCcp);
     $http.get('http://localhost:1340/socio/').then(function (resp) {
    $scope.socios = resp.data.results;
 
   });
 
 
+ // $http.get('http://localhost:1340/config/').then(function (resp) {
+ //   $scope.configuraciones = resp.data.results;
+ //      for (var i=0;i<$scope.configuraciones.length;++i){
+ //        if($scope.configuraciones[i].idCaja==MyService.data.idCaja){
+ //            $scope.config=$scope.configuraciones[i];
+ //            MyService.data.valorCcp=$scope.config.precioCcp;
+ //           }
+ //      }
+ //  });
  $scope.today = function() {
     $scope.fechaAsistencia = new Date();
   };
@@ -151,7 +161,14 @@
 
 
 $scope.item={};
-
+$scope.item.mensaje="";
+$scope.item.monto=0;
+$scope.dato=[];
+$scope.dato = dato;
+$scope.item.datosCuenta=datosCuenta;
+$scope.item.nombres=dato.nombres;
+$scope.item.apellidos=dato.apellidos;
+$scope.item.idSocio=dato.id;
 
  $scope.filterOptions = {
         filterText: "",
@@ -223,6 +240,44 @@ $scope.item={};
       // $scope.ordenosFiltrados = $scope.ordenos.filter(function (ordeno) {
       //   return (ordeno.idAnimal == pas );
       // });
+    };
+$scope.limpiar=function(item){
+  $scope.item.mensaje="";
+};
+$scope.calculoMonto=function(item){
+
+  var monto = 0;
+  var valorCcp = MyService.data.valorCcp;
+ monto = valorCcp*item.cantidad
+ $scope.item.valorCcp=valorCcp;
+$scope.item.monto=monto;
+};
+    $scope.okAperturaCuenta = function (item){
+
+var guachiman = false;
+       $http.get('http://localhost:1340/cuent/?idCaja='+MyService.data.idCaja).then(function (resp) {
+      $scope.cuentas = resp.data.results;
+     for (var i=0;i<$scope.cuentas.length;++i){
+        if($scope.cuentas[i].numeroCuenta==item.numeroCuenta){
+            guachiman=true;
+           }
+      }
+      if (guachiman==true)
+      {
+
+        $scope.item.mensaje="Este numero de cuenta ya se encuentra asignado";
+      };
+      if (guachiman==false){
+     
+        $scope.item.mensaje="";
+         item.idUsuario=MyService.data.idUsuario;
+      item.idCaja= MyService.data.idCaja;
+      $http.post('http://localhost:1340/cuent/' ,item); 
+      $modalInstance.close();
+      };
+
+  });
+     
     };
     $scope.okTratamiento = function (item) {
       var idAnimal=MyService.data.identificador;
