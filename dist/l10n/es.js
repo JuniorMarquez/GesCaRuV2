@@ -20,8 +20,8 @@
     "EMAIL" : "Email",
     "DISCOS" : "Discos",
     "WIDGETS" : "Widgets",
-    "Animales" : {
-      "Animales" : "Animales",
+    "Socios" : {
+      "Socios" : "Socios",
             "Administrar" : "Administrar"
       },
     "components" : {

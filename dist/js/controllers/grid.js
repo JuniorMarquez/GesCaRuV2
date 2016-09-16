@@ -5,8 +5,8 @@ app.controller('GridDemoCtrl', ['$scope', '$http', function($scope, $http) {
     }; 
     $scope.totalServerItems = 0;
     $scope.pagingOptions = {
-        pageSizes: [250, 500, 1000],
-        pageSize: 250,
+        pageSizes: [5, 10, 15],
+        pageSize: 5,
         currentPage: 1
     };  
     $scope.setPagingData = function(data, page, pageSize){  

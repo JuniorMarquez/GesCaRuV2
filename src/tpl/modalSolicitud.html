@@ -1,0 +1,235 @@
+
+<div class="modal-header">
+    <h3 class="modal-title">Solicitud de crédito</h3>
+    
+</div>
+<div class="wrapper-md">
+<tabset class="tab-container" ng-init="steps={percent:20, step1:true, step2:false, step3:false, step4:false}">
+    <tab heading="Datos del socio" active="steps.step1" select="steps.percent=10">
+      <p class="m-b"></p>
+      <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+      
+      <form name="step1" class="form-validation">
+        <p>Indique la cedula del socio solicitante</p>
+        
+        <div class="row" >
+            <div class="form-group col-sm-4" >
+                      <ui-select ng-model="item.propietario" ng-change="consultaCcp2(item)"theme="bootstrap" required ng-change="step1.$valid ? (steps.percent=30) : (steps.percent=20)">
+                        <ui-select-match placeholder="Cédula ...">{{$select.selected.cedula}}</ui-select-match>
+                        <ui-select-choices group-by="'nombre'" repeat="item as item in socios| filter: $select.search">
+                          <span ng-bind-html="item.cedula | highlight: $select.search"></span>
+                         
+                          
+                        </ui-select-choices>
+                      </ui-select>
+
+
+          </div> 
+          </div>
+
+
+
+
+        <div class="m-t m-b">
+          <button type="submit" ng-disabled="step1.$invalid" class="btn btn-default btn-rounded"  ng-click="steps.step2=true" >Siguiente</button>
+        </div>
+      </form>
+    </tab>
+    <tab heading="Monto, tasa de interés y plazo" disabled="step1.$invalid" active="steps.step2" select="steps.percent=30">
+      <form name="step2" class="form-validation">
+        <p class="m-b"></p>
+        <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+        <p> CCP de propiedad: {{item.totalCcp}}</p>
+         <p> Máximo de CCP equivalente a solicitar: {{item.equivalente}} ({{item.totalCcp}}*{{item.eq}})</p>
+          <p> Monto Máximo a solicitar: {{item.maximo | number:2}} ({{item.equivalente}}*Bs.F. {{item.valor | number:2}}) 
+
+          <div class="form-group col-sm-12" >
+          <div class="form-group col-sm-6" >
+          <div class="form-group col-sm-6" >
+        Indique el monto Bs.F
+         </div>
+           <div class="form-group col-md-4" >
+      <input type="number" name="monto"  min="1" class="form-control" ng-model="item.monto" max="{{item.totalCcp*item.eq*item.valor}}" ng-change="calculoEquivalente2(item)" >
+        </div>
+  </div>
+        <div class="form-group col-sm-6" >
+        <div class="form-group col-sm-6" >
+           Equivalente de CCP a solicitar en crédito
+          </div>
+          <div class="form-group col-md-4" >
+      <input type="number" name="solicitado"  min="0" class="form-control" ng-model="item.solicitado"  ng-change="calculoEquivalente2(item)" >
+        </div>
+       
+   
+        </div>
+  
+  </div>  
+  <div class="form-group col-sm-12" >
+        <div class="form-group col-sm-4" >
+        <div class="form-group col-sm-6" >
+           Tasa de interés a utilizar
+          </div>
+          <div class="form-group col-md-6" >
+<div class="form-group" >
+                      <ui-select ng-model="item.tasa" theme="bootstrap" required ng-change="calculoEquivalente2(item)" >
+                        <ui-select-match placeholder="tasa ...">{{$select.selected.tasa}}</ui-select-match>
+                        <ui-select-choices group-by="'descripcion'" repeat="item.tasa as item in tasas| filter: $select.search">
+                          <span ng-bind-html="item.tasa | highlight: $select.search"></span>
+                         
+                          
+                        </ui-select-choices>
+                      </ui-select>
+
+
+          </div> 
+        </div>
+       
+   
+        </div>
+<div class="form-group col-sm-4" >
+          <div class="form-group col-sm-4" >
+     Cobro de inetereses: 
+         </div>
+           <div class="form-group col-md-6" >
+      <div class="btn-group" required>
+                <label class="btn btn-info" ng-model="item.cobro" btn-radio="'adelantado'" ng-change="calculoEquivalente2(item)">Adelantado</label>
+               <!--  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'">Middle</label> -->
+                <label class="btn btn-info" ng-model="item.cobro" btn-radio="'fraccionado'" ng-change="calculoEquivalente2(item)">Fraccionado</label>
+            </div>
+        </div>
+  </div>
+
+
+
+
+
+  <div class="form-group col-sm-4" >
+          <div class="form-group col-sm-4" >
+     Plazo (meses)
+         </div>
+           <div class="form-group col-md-6" >
+      <input type="number" name="numeroMeses" max="{{item.maximoPlazo}}" min="1" class="form-control" ng-model="item.numeroMeses"  ng-change="calculoEquivalente2(item)" >
+        </div>
+  </div>
+  </div>
+
+
+            
+        
+
+           Monto 
+           solicitado:  <span class="badge bg-success">Bs.F. {{item.monto | number:2}} </span> Tasa de interés <span class="badge bg-primary">{{item.tasa}}%</span> 
+
+           
+
+
+
+           <p> Monto a pagar por concepto de intereses:<span class="badge bg-warning">Bs.F. {{item.intereses | number:2}} </span>| Monto a pagar por cuota: <span class="badge bg-primary">Bs.F. {{item.cuota | number:2}} </span>| Monto total a pagar:  <span class="badge bg-info">Bs.F. {{item.totalAPagar | number:2}}</span> </p>
+        
+      
+         <div class="form-group col-sm-12" >
+         <!-- <div class="form-group col-sm-6" >
+        <div class="form-group col-sm-6" >
+           Indique el plazo a otorgar
+          </div>
+   
+           <div class="form-group col-md-4" >
+      
+        </div> 
+        </div> -->
+     <!--    <div class="form-group">
+                            
+                  <div class="col-sm-3">
+                    <p class="input-group"  >
+                 <input type="text" class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="item.date" is-open="opened" ng-change="calculoEquivalente2(item) datepicker-options="dateOptions" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true"  />
+                  <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                  </p>  
+                 
+                       </div>
+                                   
+            </div> -->
+     <!--    Fecha de otorgamiento: {{item.date|date:'dd/MM/yyyy'}}
+       | 
+        Fecha de Vencimiento: {{item.dateVencimiento |date:'dd/MM/yyyy'}} -->
+         
+         </div>
+ 
+
+            <div class="m-t m-b">
+            
+          <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step1=true" ng-click="limpiar(item)">Anterior</button>
+          <button type="submit" ng-disabled="step2.$invalid" class="btn btn-default btn-rounded" ng-click="steps.step3=true">Siguiente</button>
+        </div>
+      </form>
+    </tab>
+    <tab heading="Información de fiadores" disabled="step1.$invalid" active="steps.step3" select="steps.percent=60">
+    <form name="step3" class="form-validation">
+      <p class="m-b"></p>
+      <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+    <p>Indique la cedula del fiador uno</p>
+
+ <div class="row" ng-show="item.propietario">
+              <div class="form-group col-sm-4" >
+                      <ui-select ng-model="item.fiadorUno" theme="bootstrap" required>
+                        <ui-select-match placeholder="Cédula ...">{{$select.selected.cedula}}</ui-select-match>
+                        <ui-select-choices group-by="'nombre'" repeat="item as item in socios| filter: $select.search">
+                          <span ng-bind-html="item.cedula | highlight: $select.search"></span>
+                          <span ng-bind-html="item.nombres | highlight: $select.search"></span>
+                          
+                        </ui-select-choices>
+                      </ui-select>
+              </div> 
+  
+          </div> 
+
+<p>Indique la cedula del fiador dos</p>
+
+  <div class="row" ng-show="item.propietario">
+              <div class="form-group col-sm-4" >
+                      <ui-select ng-model="item.fiadorDos" theme="bootstrap" required>
+                        <ui-select-match placeholder="Cédula ...">{{$select.selected.cedula}}</ui-select-match>
+                        <ui-select-choices group-by="'nombre'" repeat="item as item in socios| filter: $select.search">
+                          <span ng-bind-html="item.cedula | highlight: $select.search"></span>
+                          <span ng-bind-html="item.nombres | highlight: $select.search"></span>
+                          
+                        </ui-select-choices>
+                      </ui-select>
+
+
+          </div> 
+</div> 
+        <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step2=true">Anterior</button>
+        <button type="submit" ng-disabled="step3.$invalid" class="btn btn-default btn-rounded"  ng-click="steps.step4=true" >Siguiente</button>
+    
+      </form>
+    </tab>
+   
+
+      
+       
+    
+     
+    <tab heading="Información de crédito" disabled="step3.$invalid" active="steps.step4" select="steps.percent=90">
+    <form name="step4" class="form-validation">
+     <p class="m-b"></p>
+      <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+
+      <div class="row" ng-show="item.propietario">
+      <div class="form-group col-sm-4" >
+      <p>Numero de crédito</p>
+        <input type="text" class="form-control" ng-model="item.numero" required>
+        <p>Propósito del crédito</p>
+         <input type="text" class="form-control" ng-model="item.proposito" required>
+
+    </div>
+        </div>
+<button type="button" class="btn btn-default btn-rounded" ng-click="steps.step3=true">Anterior</button>
+        <button type="button" class="btn btn-default btn-rounded"  ng-click="registrarSolicitud(item)">Finalizar</button>
+      </form>
+    </tab>
+  </tabset>
+  </div>
+
+

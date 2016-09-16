@@ -10,7 +10,7 @@ $scope.datos={};
 $scope.datos=MyService.data.datos;
 
   $scope.bienvenida= function(){
-//     $http.get('http://localhost:1337/usergesgan/'+MyService.data.idUsuario).then(function (resp) {
+//     $http.get('http://localhost:1340/usergesgan/'+MyService.data.idUsuario).then(function (resp) {
 //     $scope.datos = resp.data.results;
 // nombre = $scope.datos[0].nombre;
 // // var numero = $scope.groups.length;
@@ -22,7 +22,7 @@ $scope.datos=MyService.data.datos;
 
   };
  
- //  $http.get('http://localhost:1337/ordeno/?idAnimal='+MyService.data.animalConsultado.id).then(function (resp) {
+ //  $http.get('http://localhost:1340/ordeno/?idAnimal='+MyService.data.animalConsultado.id).then(function (resp) {
  //    $scope.ordenos = resp.data.results;
  //    MyService.data.ordenos=resp.data.results;
  //    var cant = $scope.ordenos.length;

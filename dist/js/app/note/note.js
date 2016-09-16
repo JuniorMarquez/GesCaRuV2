@@ -1,5 +1,5 @@
 app.controller('NoteCtrl', ['$scope', '$http', function($scope, $http) {
-  $http.get('http://katuru.com.ve:1337/notes').then(function (resp) {
+  $http.get('http://katuru.com.ve:1340/notes').then(function (resp) {
     $scope.notes = resp.data.results;
     // set default note
     $scope.note = $scope.notes[0];

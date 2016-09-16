@@ -1,0 +1,944 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'grunt-nw-builder',
+1 verbose cli   '--save-dev' ]
+2 info using npm@2.15.8
+3 info using node@v4.4.7
+4 verbose install initial load of /root/proyectos/GesCaRuV2/package.json
+5 warn package.json ((soLib))@1.3.3 license should be a valid SPDX license expression
+6 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/abbrev/package.json
+7 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/align-text/package.json
+8 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/amdefine/package.json
+9 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/ansi-regex/package.json
+10 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/ansi-styles/package.json
+11 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/archy/package.json
+12 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/argparse/package.json
+13 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/array-filter/package.json
+14 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/array-find-index/package.json
+15 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/array-map/package.json
+16 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/array-reduce/package.json
+17 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/asn1/package.json
+18 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/assert-plus/package.json
+19 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/async/package.json
+20 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/aws-sign2/package.json
+21 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/balanced-match/package.json
+22 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/binary/package.json
+23 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/bl/package.json
+24 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/boom/package.json
+25 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/bower/package.json
+26 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/bower-config/package.json
+27 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/bower-endpoint-parser/package.json
+28 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/bower-json/package.json
+29 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/bower-logger/package.json
+30 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/bower-registry-client/package.json
+31 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/brace-expansion/package.json
+32 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/browserify-zlib/package.json
+33 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/buffers/package.json
+34 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/builtin-modules/package.json
+35 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/camel-case/package.json
+36 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/camelcase/package.json
+37 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/camelcase-keys/package.json
+38 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/cardinal/package.json
+39 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/caseless/package.json
+40 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/center-align/package.json
+41 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/chainsaw/package.json
+42 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/chalk/package.json
+43 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/change-case/package.json
+44 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/chmodr/package.json
+45 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/clean-css/package.json
+46 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/cli/package.json
+47 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/cli-color/package.json
+48 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/cliui/package.json
+49 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/coffee-script/package.json
+50 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/colors/package.json
+51 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/combined-stream/package.json
+52 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/commander/package.json
+53 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/concat-map/package.json
+54 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/concat-stream/package.json
+55 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/config-chain/package.json
+56 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/configstore/package.json
+57 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/constant-case/package.json
+58 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/core-util-is/package.json
+59 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/cryptiles/package.json
+60 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/ctype/package.json
+61 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/d/package.json
+62 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/dateformat/package.json
+63 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/decamelize/package.json
+64 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/decompress-zip/package.json
+65 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/deep-extend/package.json
+66 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/delayed-stream/package.json
+67 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/dot-case/package.json
+68 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/ecstatic/package.json
+69 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/end-of-stream/package.json
+70 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/ent/package.json
+71 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/error-ex/package.json
+72 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/es5-ext/package.json
+73 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/es6-iterator/package.json
+74 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/es6-symbol/package.json
+75 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/es6-weak-map/package.json
+76 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/escape-string-regexp/package.json
+77 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/esprima/package.json
+78 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/event-emitter/package.json
+79 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/eventemitter2/package.json
+80 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/exec-sh/package.json
+81 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/exit/package.json
+82 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/figures/package.json
+83 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/find-up/package.json
+84 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/findup-sync/package.json
+85 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/forever-agent/package.json
+86 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/form-data/package.json
+87 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/fstream/package.json
+88 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/fstream-ignore/package.json
+89 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/get-stdin/package.json
+90 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/getobject/package.json
+91 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/glob/package.json
+92 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/got/package.json
+93 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/graceful-fs/package.json
+94 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/grunt/package.json
+95 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/grunt-bower-install-simple/package.json
+96 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/grunt-bump/package.json
+97 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/grunt-changelog/package.json
+98 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/grunt-concurrent/package.json
+99 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/grunt-contrib-clean/package.json
+100 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/grunt-contrib-concat/package.json
+101 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/grunt-contrib-copy/package.json
+102 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/grunt-contrib-htmlmin/package.json
+103 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/grunt-contrib-uglify/package.json
+104 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/grunt-legacy-log/package.json
+105 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/grunt-legacy-log-utils/package.json
+106 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/grunt-legacy-util/package.json
+107 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/grunt-recess/package.json
+108 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/gruntfile-gtx/package.json
+109 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/gzip-size/package.json
+110 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/handlebars/package.json
+111 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/has-ansi/package.json
+112 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/has-color/package.json
+113 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/hawk/package.json
+114 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/hoek/package.json
+115 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/hooker/package.json
+116 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/hosted-git-info/package.json
+117 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/html-minifier/package.json
+118 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/http-server/package.json
+119 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/http-signature/package.json
+120 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/iconv-lite/package.json
+121 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/indent-string/package.json
+122 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/inherits/package.json
+123 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/ini/package.json
+124 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/inquirer/package.json
+125 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/insight/package.json
+126 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/intersect/package.json
+127 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/is-arrayish/package.json
+128 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/is-buffer/package.json
+129 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/is-builtin-module/package.json
+130 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/is-finite/package.json
+131 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/is-lower-case/package.json
+132 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/is-root/package.json
+133 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/is-upper-case/package.json
+134 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/is-utf8/package.json
+135 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/isarray/package.json
+136 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/js-yaml/package.json
+137 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/json-stringify-safe/package.json
+138 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/jsonify/package.json
+139 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/junk/package.json
+140 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/kind-of/package.json
+141 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/latest-version/package.json
+142 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/lazy-cache/package.json
+143 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/less/package.json
+144 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/load-grunt-tasks/package.json
+145 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/load-json-file/package.json
+146 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/lockfile/package.json
+147 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/lodash/package.json
+148 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/lodash._isnative/package.json
+149 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/lodash._objecttypes/package.json
+150 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/lodash.debounce/package.json
+151 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/lodash.isfunction/package.json
+152 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/lodash.isobject/package.json
+153 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/lodash.now/package.json
+154 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/longest/package.json
+155 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/loud-rejection/package.json
+156 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/lower-case/package.json
+157 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/lpad/package.json
+158 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/lru-cache/package.json
+159 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/lru-queue/package.json
+160 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/map-obj/package.json
+161 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/maxmin/package.json
+162 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/memoizee/package.json
+163 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/meow/package.json
+164 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/merge/package.json
+165 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/mime/package.json
+166 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/mime-db/package.json
+167 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/mime-types/package.json
+168 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/minimatch/package.json
+169 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/minimist/package.json
+170 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/mkdirp/package.json
+171 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/mkpath/package.json
+172 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/moment/package.json
+173 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/mout/package.json
+174 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/multimatch/package.json
+175 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/mute-stream/package.json
+176 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/next-tick/package.json
+177 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/ng-table/package.json
+178 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/node-uuid/package.json
+179 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/nopt/package.json
+180 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/normalize-package-data/package.json
+181 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/npmconf/package.json
+182 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/number-is-nan/package.json
+183 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/nw-builder/package.json
+184 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/oauth-sign/package.json
+185 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/object-assign/package.json
+186 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/once/package.json
+187 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/opener/package.json
+188 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/opn/package.json
+189 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/optimist/package.json
+190 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/os-name/package.json
+191 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/osenv/package.json
+192 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/osx-release/package.json
+193 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/p-throttler/package.json
+194 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/package-json/package.json
+195 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/pad-stdio/package.json
+196 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/pako/package.json
+197 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/param-case/package.json
+198 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/parse-json/package.json
+199 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/pascal-case/package.json
+200 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/path-case/package.json
+201 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/path-exists/package.json
+202 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/path-type/package.json
+203 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/pify/package.json
+204 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/pinkie/package.json
+205 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/pinkie-promise/package.json
+206 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/pkginfo/package.json
+207 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/portfinder/package.json
+208 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/pretty-bytes/package.json
+209 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/process-nextick-args/package.json
+210 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/promptly/package.json
+211 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/proto-list/package.json
+212 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/pump/package.json
+213 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/punycode/package.json
+214 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/q/package.json
+215 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/qs/package.json
+216 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/read/package.json
+217 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/read-pkg/package.json
+218 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/read-pkg-up/package.json
+219 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/readable-stream/package.json
+220 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/readline2/package.json
+221 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/recess/package.json
+222 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/redent/package.json
+223 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/redeyed/package.json
+224 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/registry-url/package.json
+225 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/relateurl/package.json
+226 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/repeat-string/package.json
+227 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/repeating/package.json
+228 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/request/package.json
+229 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/request-progress/package.json
+230 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/request-replay/package.json
+231 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/require-directory/package.json
+232 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/retry/package.json
+233 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/right-align/package.json
+234 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/rimraf/package.json
+235 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/rx/package.json
+236 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/semver/package.json
+237 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/semver-diff/package.json
+238 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/sentence-case/package.json
+239 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/shell-quote/package.json
+240 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/sigmund/package.json
+241 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/signal-exit/package.json
+242 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/snake-case/package.json
+243 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/sntp/package.json
+244 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/source-map/package.json
+245 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/spdx-correct/package.json
+246 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/spdx-exceptions/package.json
+247 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/spdx-expression-parse/package.json
+248 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/spdx-license-ids/package.json
+249 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/sprintf-js/package.json
+250 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/string-length/package.json
+251 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/string_decoder/package.json
+252 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/stringify-object/package.json
+253 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/stringstream/package.json
+254 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/strip-ansi/package.json
+255 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/strip-bom/package.json
+256 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/strip-indent/package.json
+257 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/supports-color/package.json
+258 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/swap-case/package.json
+259 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/tar-fs/package.json
+260 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/tar-stream/package.json
+261 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/throttleit/package.json
+262 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/through/package.json
+263 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/timers-ext/package.json
+264 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/title-case/package.json
+265 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/tmp/package.json
+266 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/touch/package.json
+267 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/tough-cookie/package.json
+268 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/traverse/package.json
+269 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/trim-newlines/package.json
+270 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/tunnel-agent/package.json
+271 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/typedarray/package.json
+272 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/uglify-js/package.json
+273 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/uglify-to-browserify/package.json
+274 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/uid-number/package.json
+275 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/underscore/package.json
+276 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/underscore.string/package.json
+277 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/union/package.json
+278 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/update-notifier/package.json
+279 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/upper-case/package.json
+280 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/upper-case-first/package.json
+281 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/user-home/package.json
+282 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/util-deprecate/package.json
+283 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/uuid/package.json
+284 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/validate-npm-package-license/package.json
+285 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/watch/package.json
+286 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/which/package.json
+287 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/win-release/package.json
+288 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/window-size/package.json
+289 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/wordwrap/package.json
+290 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/wrappy/package.json
+291 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/xdg-basedir/package.json
+292 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/xtend/package.json
+293 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/yargs/package.json
+294 verbose installManyTop reading scoped package data from /root/proyectos/GesCaRuV2/node_modules/ycssmin/package.json
+295 info package.json archy@0.0.2 license should be a valid SPDX license expression
+296 info package.json asn1@0.1.11 No license field.
+297 info package.json assert-plus@0.1.5 No license field.
+298 info package.json async@0.1.22 No license field.
+299 info package.json aws-sign2@0.5.0 No license field.
+300 info package.json boom@0.4.2 No license field.
+301 info package.json bower@1.3.12 No license field.
+302 info package.json bower-config@0.5.2 No license field.
+303 info package.json bower-endpoint-parser@0.2.2 No license field.
+304 info package.json bower-json@0.4.0 No license field.
+305 info package.json bower-logger@0.2.2 No license field.
+306 info package.json bower-registry-client@0.2.4 No license field.
+307 info package.json buffers@0.1.1 No license field.
+308 info package.json caseless@0.8.0 license should be a valid SPDX license expression
+309 info package.json chainsaw@0.1.0 license should be a valid SPDX license expression
+310 info package.json chmodr@0.1.0 license should be a valid SPDX license expression
+311 info package.json cli@0.6.6 No license field.
+312 info package.json coffee-script@1.3.3 No license field.
+313 info package.json colors@0.6.2 No license field.
+314 info package.json combined-stream@0.0.7 No license field.
+315 info package.json commander@2.2.0 No license field.
+316 info package.json config-chain@1.1.10 No license field.
+317 info package.json configstore@0.3.2 license should be a valid SPDX license expression
+318 info package.json cryptiles@0.2.2 No license field.
+319 info package.json ctype@0.5.3 No license field.
+320 info package.json dateformat@1.0.2-1.2.3 No repository field.
+321 info package.json dateformat@1.0.2-1.2.3 No license field.
+322 info package.json decompress-zip@0.0.8 No license field.
+323 info package.json delayed-stream@0.0.5 No license field.
+324 info package.json ecstatic@0.4.13 No license field.
+325 info package.json esprima@1.0.4 No license field.
+326 info package.json exec-sh@0.2.0 license should be a valid SPDX license expression
+327 info package.json exit@0.1.2 No license field.
+328 info package.json findup-sync@0.1.3 No license field.
+329 info package.json forever-agent@0.5.2 No license field.
+330 info package.json form-data@0.2.0 No license field.
+331 info package.json getobject@0.1.0 No license field.
+332 info package.json glob@3.1.21 license should be a valid SPDX license expression
+333 info package.json graceful-fs@1.2.3 license should be a valid SPDX license expression
+334 info package.json grunt@0.4.5 No license field.
+335 info package.json grunt-changelog@0.2.2 No license field.
+336 info package.json grunt-concurrent@0.5.0 No license field.
+337 info package.json grunt-contrib-clean@0.6.0 No license field.
+338 info package.json grunt-contrib-concat@0.5.1 No license field.
+339 info package.json grunt-contrib-copy@0.5.0 No license field.
+340 info package.json grunt-contrib-htmlmin@0.3.0 No license field.
+341 info package.json grunt-contrib-uglify@0.5.1 No license field.
+342 info package.json grunt-legacy-log-utils@0.1.1 No license field.
+343 info package.json grunt-legacy-util@0.2.0 No license field.
+344 info package.json gruntfile-gtx@0.3.0 No license field.
+345 info package.json hawk@1.1.1 No license field.
+346 info package.json hoek@0.9.1 No license field.
+347 info package.json hooker@0.2.3 No license field.
+348 info package.json html-minifier@0.6.9 license should be a valid SPDX license expression
+349 info package.json http-server@0.6.1 No license field.
+350 info package.json insight@0.4.3 license should be a valid SPDX license expression
+351 info package.json js-yaml@2.0.5 license should be a valid SPDX license expression
+352 info package.json jsonify@0.0.0 license should be a valid SPDX license expression
+353 info package.json less@1.3.3 No license field.
+354 info package.json longest@1.0.1 license should be a valid SPDX license expression
+355 info package.json mime@1.2.11 No license field.
+356 info package.json minimatch@0.2.14 license should be a valid SPDX license expression
+357 info package.json moment@2.0.0 No license field.
+358 info package.json mout@0.9.1 No license field.
+359 info package.json mute-stream@0.0.4 license should be a valid SPDX license expression
+360 info package.json ng-table@1.0.0 license should be a valid SPDX license expression
+361 info package.json node-uuid@1.4.7 No license field.
+362 info package.json nopt@1.0.10 license should be a valid SPDX license expression
+363 info package.json oauth-sign@0.5.0 No license field.
+364 info package.json optimist@0.6.1 license should be a valid SPDX license expression
+365 info package.json osenv@0.1.0 license should be a valid SPDX license expression
+366 info package.json pako@0.2.8 license should be a valid SPDX license expression
+367 info package.json pkginfo@0.2.3 No license field.
+368 info package.json portfinder@0.2.1 No license field.
+369 info package.json punycode@1.4.0 punycode is also the name of a node core module.
+370 info package.json q@1.0.1 license should be a valid SPDX license expression
+371 info package.json qs@2.3.3 No license field.
+372 info package.json recess@1.1.9 No license field.
+373 info package.json relateurl@0.2.6 No license field.
+374 info package.json repeat-string@1.5.2 license should be a valid SPDX license expression
+375 info package.json retry@0.6.0 No license field.
+376 info package.json rimraf@2.2.8 license should be a valid SPDX license expression
+377 info package.json semver@2.3.2 license should be a valid SPDX license expression
+378 info package.json sntp@0.2.4 No license field.
+379 info package.json source-map@0.1.43 No license field.
+380 info package.json string_decoder@0.10.31 string_decoder is also the name of a node core module.
+381 info package.json stringify-object@1.0.1 license should be a valid SPDX license expression
+382 info package.json tmp@0.0.23 No license field.
+383 info package.json touch@0.0.2 No license field.
+384 info package.json traverse@0.3.9 license should be a valid SPDX license expression
+385 info package.json uglify-js@2.3.6 No license field.
+386 info package.json underscore@1.7.0 No license field.
+387 info package.json underscore.string@2.2.1 No license field.
+388 info package.json union@0.3.8 No license field.
+389 info package.json update-notifier@0.2.0 license should be a valid SPDX license expression
+390 info package.json uuid@2.0.1 No license field.
+391 info package.json window-size@0.1.0 No license field.
+392 info package.json yargs@3.5.4 license should be a valid SPDX license expression
+393 info package.json ycssmin@1.0.1 No license field.
+394 verbose readDependencies loading dependencies from /root/proyectos/GesCaRuV2/package.json
+395 silly cache add args [ 'grunt-nw-builder', null ]
+396 verbose cache add spec grunt-nw-builder
+397 silly cache add parsed spec Result {
+397 silly cache add   raw: 'grunt-nw-builder',
+397 silly cache add   scope: null,
+397 silly cache add   name: 'grunt-nw-builder',
+397 silly cache add   rawSpec: '',
+397 silly cache add   spec: 'latest',
+397 silly cache add   type: 'tag' }
+398 silly addNamed grunt-nw-builder@latest
+399 verbose addNamed "latest" is being treated as a dist-tag for grunt-nw-builder
+400 info addNameTag [ 'grunt-nw-builder', 'latest' ]
+401 silly mapToRegistry name grunt-nw-builder
+402 silly mapToRegistry using default registry
+403 silly mapToRegistry registry https://registry.npmjs.org/
+404 silly mapToRegistry data Result {
+404 silly mapToRegistry   raw: 'grunt-nw-builder',
+404 silly mapToRegistry   scope: null,
+404 silly mapToRegistry   name: 'grunt-nw-builder',
+404 silly mapToRegistry   rawSpec: '',
+404 silly mapToRegistry   spec: 'latest',
+404 silly mapToRegistry   type: 'tag' }
+405 silly mapToRegistry uri https://registry.npmjs.org/grunt-nw-builder
+406 verbose addNameTag registry:https://registry.npmjs.org/grunt-nw-builder not in flight; fetching
+407 verbose request uri https://registry.npmjs.org/grunt-nw-builder
+408 verbose request no auth needed
+409 info attempt registry request try #1 at 10:12:57
+410 verbose request id 39a8ab61dedd078a
+411 http request GET https://registry.npmjs.org/grunt-nw-builder
+412 http 200 https://registry.npmjs.org/grunt-nw-builder
+413 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+413 verbose headers   etag: '"AXPVJE3FVF61BEAJN3H6NCPO3"',
+413 verbose headers   'content-type': 'application/json',
+413 verbose headers   'content-encoding': 'gzip',
+413 verbose headers   'cache-control': 'max-age=300',
+413 verbose headers   'content-length': '3604',
+413 verbose headers   'accept-ranges': 'bytes',
+413 verbose headers   date: 'Fri, 02 Sep 2016 14:43:03 GMT',
+413 verbose headers   via: '1.1 varnish',
+413 verbose headers   age: '0',
+413 verbose headers   connection: 'keep-alive',
+413 verbose headers   'x-served-by': 'cache-mia1327-MIA',
+413 verbose headers   'x-cache': 'MISS',
+413 verbose headers   'x-cache-hits': '0',
+413 verbose headers   'x-timer': 'S1472827383.634088,VS0,VE171',
+413 verbose headers   vary: 'Accept-Encoding' }
+414 silly get cb [ 200,
+414 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+414 silly get     etag: '"AXPVJE3FVF61BEAJN3H6NCPO3"',
+414 silly get     'content-type': 'application/json',
+414 silly get     'content-encoding': 'gzip',
+414 silly get     'cache-control': 'max-age=300',
+414 silly get     'content-length': '3604',
+414 silly get     'accept-ranges': 'bytes',
+414 silly get     date: 'Fri, 02 Sep 2016 14:43:03 GMT',
+414 silly get     via: '1.1 varnish',
+414 silly get     age: '0',
+414 silly get     connection: 'keep-alive',
+414 silly get     'x-served-by': 'cache-mia1327-MIA',
+414 silly get     'x-cache': 'MISS',
+414 silly get     'x-cache-hits': '0',
+414 silly get     'x-timer': 'S1472827383.634088,VS0,VE171',
+414 silly get     vary: 'Accept-Encoding' } ]
+415 verbose get saving grunt-nw-builder to /root/.npm/registry.npmjs.org/grunt-nw-builder/.cache.json
+416 verbose correctMkdir /root/.npm correctMkdir not in flight; initializing
+417 silly addNameTag next cb for grunt-nw-builder with tag latest
+418 silly addNamed grunt-nw-builder@3.0.0
+419 verbose addNamed "3.0.0" is a plain semver version for grunt-nw-builder
+420 silly mapToRegistry name grunt-nw-builder
+421 silly mapToRegistry using default registry
+422 silly mapToRegistry registry https://registry.npmjs.org/
+423 silly mapToRegistry data Result {
+423 silly mapToRegistry   raw: 'grunt-nw-builder',
+423 silly mapToRegistry   scope: null,
+423 silly mapToRegistry   name: 'grunt-nw-builder',
+423 silly mapToRegistry   rawSpec: '',
+423 silly mapToRegistry   spec: 'latest',
+423 silly mapToRegistry   type: 'tag' }
+424 silly mapToRegistry uri https://registry.npmjs.org/grunt-nw-builder
+425 verbose addRemoteTarball https://registry.npmjs.org/grunt-nw-builder/-/grunt-nw-builder-3.0.0.tgz not in flight; adding
+426 verbose addRemoteTarball [ 'https://registry.npmjs.org/grunt-nw-builder/-/grunt-nw-builder-3.0.0.tgz',
+426 verbose addRemoteTarball   'f1775ff73f1fab17454c4e794727f8cf6602883e' ]
+427 info retry fetch attempt 1 at 10:13:13
+428 info attempt registry request try #1 at 10:13:13
+429 http fetch GET https://registry.npmjs.org/grunt-nw-builder/-/grunt-nw-builder-3.0.0.tgz
+430 http fetch 200 https://registry.npmjs.org/grunt-nw-builder/-/grunt-nw-builder-3.0.0.tgz
+431 silly fetchAndShaCheck shasum f1775ff73f1fab17454c4e794727f8cf6602883e
+432 verbose addTmpTarball /tmp/npm-18492-e23c20d8/registry.npmjs.org/grunt-nw-builder/-/grunt-nw-builder-3.0.0.tgz not in flight; adding
+433 verbose addTmpTarball already have metadata; skipping unpack for grunt-nw-builder@3.0.0
+434 verbose correctMkdir /root/.npm correctMkdir not in flight; initializing
+435 silly cache afterAdd grunt-nw-builder@3.0.0
+436 verbose afterAdd /root/.npm/grunt-nw-builder/3.0.0/package/package.json not in flight; writing
+437 verbose correctMkdir /root/.npm correctMkdir not in flight; initializing
+438 verbose afterAdd /root/.npm/grunt-nw-builder/3.0.0/package/package.json written
+439 silly install resolved [ { name: 'grunt-nw-builder',
+439 silly install resolved     description: 'Let\'s you build your node webkit apps with grunt',
+439 silly install resolved     version: '3.0.0',
+439 silly install resolved     homepage: 'https://github.com/mllrsohn/grunt-nw-builder',
+439 silly install resolved     author: { name: 'Steffen Müller', email: 'steffen@mllrsohn.com' },
+439 silly install resolved     scripts: { test: 'echo \'Tests exist in NW.js-builder project; http://github.com/mllrsohn/node-webkit-builder\'' },
+439 silly install resolved     repository:
+439 silly install resolved      { type: 'git',
+439 silly install resolved        url: 'git+ssh://git@github.com/mllrsohn/grunt-nw-builder.git' },
+439 silly install resolved     bugs: { url: 'https://github.com/mllrsohn/grunt-nw-builder/issues' },
+439 silly install resolved     license: 'MIT',
+439 silly install resolved     main: 'Gruntfile.js',
+439 silly install resolved     engines: { node: '>= 4.0.0' },
+439 silly install resolved     peerDependencies: { grunt: '^1.0.1' },
+439 silly install resolved     keywords:
+439 silly install resolved      [ 'gruntplugin',
+439 silly install resolved        'NW.js',
+439 silly install resolved        'node-webkit',
+439 silly install resolved        'nw-builder',
+439 silly install resolved        'build',
+439 silly install resolved        'builder',
+439 silly install resolved        'desktop',
+439 silly install resolved        'application' ],
+439 silly install resolved     dependencies: { 'nw-builder': '^3.0.0' },
+439 silly install resolved     devDependencies: { grunt: '^1.0.1' },
+439 silly install resolved     gitHead: '758a5566f0f8b32b34ed87e6241b3f4c3507a22a',
+439 silly install resolved     _id: 'grunt-nw-builder@3.0.0',
+439 silly install resolved     _shasum: 'f1775ff73f1fab17454c4e794727f8cf6602883e',
+439 silly install resolved     _from: 'grunt-nw-builder@latest',
+439 silly install resolved     _npmVersion: '2.14.2',
+439 silly install resolved     _nodeVersion: '4.0.0',
+439 silly install resolved     _npmUser: { name: 'adam-lynch', email: 'contact@adamlynch.ie' },
+439 silly install resolved     dist:
+439 silly install resolved      { shasum: 'f1775ff73f1fab17454c4e794727f8cf6602883e',
+439 silly install resolved        tarball: 'https://registry.npmjs.org/grunt-nw-builder/-/grunt-nw-builder-3.0.0.tgz' },
+439 silly install resolved     maintainers: [ [Object] ],
+439 silly install resolved     _npmOperationalInternal:
+439 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+439 silly install resolved        tmp: 'tmp/grunt-nw-builder-3.0.0.tgz_1472423439963_0.0032885640393942595' },
+439 silly install resolved     directories: {},
+439 silly install resolved     _resolved: 'https://registry.npmjs.org/grunt-nw-builder/-/grunt-nw-builder-3.0.0.tgz' } ]
+440 info install grunt-nw-builder@3.0.0 into /root/proyectos/GesCaRuV2
+441 info installOne grunt-nw-builder@3.0.0
+442 verbose installOne of grunt-nw-builder to /root/proyectos/GesCaRuV2 not in flight; installing
+443 verbose correctMkdir /root/.npm/_locks correctMkdir not in flight; initializing
+444 verbose lock using /root/.npm/_locks/grunt-nw-builder-6bdf5d74e67c89f9.lock for /root/proyectos/GesCaRuV2/node_modules/grunt-nw-builder
+445 silly install write writing grunt-nw-builder 3.0.0 to /root/proyectos/GesCaRuV2/node_modules/grunt-nw-builder
+446 verbose unbuild node_modules/grunt-nw-builder
+447 silly gentlyRm /root/proyectos/GesCaRuV2/node_modules/grunt-nw-builder is being purged from base /root/proyectos/GesCaRuV2
+448 verbose gentlyRm don't care about contents; nuking /root/proyectos/GesCaRuV2/node_modules/grunt-nw-builder
+449 verbose tar unpack /root/.npm/grunt-nw-builder/3.0.0/package.tgz
+450 verbose tar unpacking to /root/proyectos/GesCaRuV2/node_modules/grunt-nw-builder
+451 silly gentlyRm /root/proyectos/GesCaRuV2/node_modules/grunt-nw-builder is being purged
+452 verbose gentlyRm don't care about contents; nuking /root/proyectos/GesCaRuV2/node_modules/grunt-nw-builder
+453 silly gunzTarPerm modes [ '755', '644' ]
+454 silly gunzTarPerm extractEntry package.json
+455 silly gunzTarPerm extractEntry .npmignore
+456 silly gunzTarPerm extractEntry README.md
+457 silly gunzTarPerm extractEntry Gruntfile.js
+458 silly gunzTarPerm extractEntry LICENSE-MIT
+459 silly gunzTarPerm extractEntry example/package.json
+460 silly gunzTarPerm extractEntry example/README.md
+461 silly gunzTarPerm extractEntry example/Gruntfile.js
+462 silly gunzTarPerm extractEntry example/docs/screenshot.png
+463 silly gunzTarPerm extractEntry example/icon.icns
+464 silly gunzTarPerm extractEntry example/public/package.json
+465 silly gunzTarPerm extractEntry example/public/Credits.html
+466 silly gunzTarPerm extractEntry example/public/images/kitten.jpg
+467 silly gunzTarPerm extractEntry example/public/index.html
+468 silly gunzTarPerm extractEntry .jshintrc
+469 silly gunzTarPerm extractEntry tasks/node_webkit_builder.js
+470 verbose write writing to /root/proyectos/GesCaRuV2/node_modules/grunt-nw-builder/package.json
+471 info preinstall grunt-nw-builder@3.0.0
+472 verbose readDependencies loading dependencies from /root/proyectos/GesCaRuV2/node_modules/grunt-nw-builder/package.json
+473 silly prepareForInstallMany adding grunt@^1.0.1 from grunt-nw-builder peerDependencies
+474 warn peerDependencies The peer dependency grunt@^1.0.1 included from grunt-nw-builder will no
+475 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+476 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+477 verbose readDependencies loading dependencies from /root/proyectos/GesCaRuV2/node_modules/grunt-nw-builder/package.json
+478 silly install resolved []
+479 verbose about to build /root/proyectos/GesCaRuV2/node_modules/grunt-nw-builder
+480 info build /root/proyectos/GesCaRuV2/node_modules/grunt-nw-builder
+481 info linkStuff grunt-nw-builder@3.0.0
+482 silly linkStuff grunt-nw-builder@3.0.0 has /root/proyectos/GesCaRuV2/node_modules as its parent node_modules
+483 verbose linkBins grunt-nw-builder@3.0.0
+484 verbose linkMans grunt-nw-builder@3.0.0
+485 verbose rebuildBundles grunt-nw-builder@3.0.0
+486 info install grunt-nw-builder@3.0.0
+487 info postinstall grunt-nw-builder@3.0.0
+488 verbose readDependencies loading dependencies from /root/proyectos/GesCaRuV2/package.json
+489 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/abbrev/package.json
+490 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/align-text/package.json
+491 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/amdefine/package.json
+492 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/ansi-regex/package.json
+493 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/ansi-styles/package.json
+494 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/archy/package.json
+495 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/argparse/package.json
+496 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/array-filter/package.json
+497 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/array-find-index/package.json
+498 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/array-map/package.json
+499 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/array-reduce/package.json
+500 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/asn1/package.json
+501 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/assert-plus/package.json
+502 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/async/package.json
+503 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/aws-sign2/package.json
+504 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/balanced-match/package.json
+505 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/binary/package.json
+506 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/bl/package.json
+507 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/boom/package.json
+508 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/bower/package.json
+509 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/bower-config/package.json
+510 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/bower-endpoint-parser/package.json
+511 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/bower-json/package.json
+512 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/bower-logger/package.json
+513 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/bower-registry-client/package.json
+514 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/brace-expansion/package.json
+515 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/browserify-zlib/package.json
+516 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/buffers/package.json
+517 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/builtin-modules/package.json
+518 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/camel-case/package.json
+519 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/camelcase/package.json
+520 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/camelcase-keys/package.json
+521 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/cardinal/package.json
+522 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/caseless/package.json
+523 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/center-align/package.json
+524 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/chainsaw/package.json
+525 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/chalk/package.json
+526 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/change-case/package.json
+527 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/chmodr/package.json
+528 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/clean-css/package.json
+529 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/cli/package.json
+530 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/cli-color/package.json
+531 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/cliui/package.json
+532 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/coffee-script/package.json
+533 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/colors/package.json
+534 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/combined-stream/package.json
+535 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/commander/package.json
+536 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/concat-map/package.json
+537 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/concat-stream/package.json
+538 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/config-chain/package.json
+539 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/configstore/package.json
+540 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/constant-case/package.json
+541 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/core-util-is/package.json
+542 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/cryptiles/package.json
+543 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/ctype/package.json
+544 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/d/package.json
+545 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/dateformat/package.json
+546 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/decamelize/package.json
+547 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/decompress-zip/package.json
+548 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/deep-extend/package.json
+549 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/delayed-stream/package.json
+550 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/dot-case/package.json
+551 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/ecstatic/package.json
+552 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/end-of-stream/package.json
+553 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/ent/package.json
+554 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/error-ex/package.json
+555 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/es5-ext/package.json
+556 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/es6-iterator/package.json
+557 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/es6-symbol/package.json
+558 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/es6-weak-map/package.json
+559 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/escape-string-regexp/package.json
+560 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/esprima/package.json
+561 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/event-emitter/package.json
+562 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/eventemitter2/package.json
+563 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/exec-sh/package.json
+564 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/exit/package.json
+565 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/figures/package.json
+566 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/find-up/package.json
+567 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/findup-sync/package.json
+568 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/forever-agent/package.json
+569 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/form-data/package.json
+570 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/fstream/package.json
+571 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/fstream-ignore/package.json
+572 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/get-stdin/package.json
+573 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/getobject/package.json
+574 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/glob/package.json
+575 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/got/package.json
+576 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/graceful-fs/package.json
+577 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/grunt/package.json
+578 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/grunt-bower-install-simple/package.json
+579 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/grunt-bump/package.json
+580 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/grunt-changelog/package.json
+581 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/grunt-concurrent/package.json
+582 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/grunt-contrib-clean/package.json
+583 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/grunt-contrib-concat/package.json
+584 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/grunt-contrib-copy/package.json
+585 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/grunt-contrib-htmlmin/package.json
+586 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/grunt-contrib-uglify/package.json
+587 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/grunt-legacy-log/package.json
+588 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/grunt-legacy-log-utils/package.json
+589 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/grunt-legacy-util/package.json
+590 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/grunt-nw-builder/package.json
+591 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/grunt-recess/package.json
+592 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/gruntfile-gtx/package.json
+593 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/gzip-size/package.json
+594 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/handlebars/package.json
+595 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/has-ansi/package.json
+596 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/has-color/package.json
+597 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/hawk/package.json
+598 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/hoek/package.json
+599 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/hooker/package.json
+600 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/hosted-git-info/package.json
+601 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/html-minifier/package.json
+602 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/http-server/package.json
+603 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/http-signature/package.json
+604 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/iconv-lite/package.json
+605 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/indent-string/package.json
+606 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/inherits/package.json
+607 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/ini/package.json
+608 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/inquirer/package.json
+609 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/insight/package.json
+610 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/intersect/package.json
+611 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/is-arrayish/package.json
+612 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/is-buffer/package.json
+613 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/is-builtin-module/package.json
+614 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/is-finite/package.json
+615 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/is-lower-case/package.json
+616 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/is-root/package.json
+617 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/is-upper-case/package.json
+618 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/is-utf8/package.json
+619 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/isarray/package.json
+620 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/js-yaml/package.json
+621 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/json-stringify-safe/package.json
+622 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/jsonify/package.json
+623 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/junk/package.json
+624 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/kind-of/package.json
+625 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/latest-version/package.json
+626 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/lazy-cache/package.json
+627 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/less/package.json
+628 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/load-grunt-tasks/package.json
+629 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/load-json-file/package.json
+630 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/lockfile/package.json
+631 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/lodash/package.json
+632 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/lodash._isnative/package.json
+633 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/lodash._objecttypes/package.json
+634 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/lodash.debounce/package.json
+635 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/lodash.isfunction/package.json
+636 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/lodash.isobject/package.json
+637 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/lodash.now/package.json
+638 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/longest/package.json
+639 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/loud-rejection/package.json
+640 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/lower-case/package.json
+641 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/lpad/package.json
+642 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/lru-cache/package.json
+643 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/lru-queue/package.json
+644 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/map-obj/package.json
+645 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/maxmin/package.json
+646 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/memoizee/package.json
+647 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/meow/package.json
+648 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/merge/package.json
+649 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/mime/package.json
+650 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/mime-db/package.json
+651 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/mime-types/package.json
+652 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/minimatch/package.json
+653 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/minimist/package.json
+654 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/mkdirp/package.json
+655 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/mkpath/package.json
+656 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/moment/package.json
+657 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/mout/package.json
+658 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/multimatch/package.json
+659 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/mute-stream/package.json
+660 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/next-tick/package.json
+661 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/ng-table/package.json
+662 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/node-uuid/package.json
+663 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/nopt/package.json
+664 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/normalize-package-data/package.json
+665 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/npmconf/package.json
+666 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/number-is-nan/package.json
+667 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/nw-builder/package.json
+668 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/oauth-sign/package.json
+669 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/object-assign/package.json
+670 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/once/package.json
+671 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/opener/package.json
+672 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/opn/package.json
+673 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/optimist/package.json
+674 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/os-name/package.json
+675 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/osenv/package.json
+676 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/osx-release/package.json
+677 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/p-throttler/package.json
+678 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/package-json/package.json
+679 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/pad-stdio/package.json
+680 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/pako/package.json
+681 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/param-case/package.json
+682 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/parse-json/package.json
+683 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/pascal-case/package.json
+684 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/path-case/package.json
+685 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/path-exists/package.json
+686 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/path-type/package.json
+687 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/pify/package.json
+688 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/pinkie/package.json
+689 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/pinkie-promise/package.json
+690 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/pkginfo/package.json
+691 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/portfinder/package.json
+692 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/pretty-bytes/package.json
+693 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/process-nextick-args/package.json
+694 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/promptly/package.json
+695 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/proto-list/package.json
+696 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/pump/package.json
+697 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/punycode/package.json
+698 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/q/package.json
+699 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/qs/package.json
+700 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/read/package.json
+701 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/read-pkg/package.json
+702 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/read-pkg-up/package.json
+703 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/readable-stream/package.json
+704 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/readline2/package.json
+705 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/recess/package.json
+706 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/redent/package.json
+707 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/redeyed/package.json
+708 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/registry-url/package.json
+709 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/relateurl/package.json
+710 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/repeat-string/package.json
+711 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/repeating/package.json
+712 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/request/package.json
+713 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/request-progress/package.json
+714 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/request-replay/package.json
+715 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/require-directory/package.json
+716 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/retry/package.json
+717 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/right-align/package.json
+718 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/rimraf/package.json
+719 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/rx/package.json
+720 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/semver/package.json
+721 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/semver-diff/package.json
+722 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/sentence-case/package.json
+723 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/shell-quote/package.json
+724 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/sigmund/package.json
+725 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/signal-exit/package.json
+726 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/snake-case/package.json
+727 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/sntp/package.json
+728 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/source-map/package.json
+729 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/spdx-correct/package.json
+730 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/spdx-exceptions/package.json
+731 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/spdx-expression-parse/package.json
+732 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/spdx-license-ids/package.json
+733 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/sprintf-js/package.json
+734 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/string-length/package.json
+735 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/string_decoder/package.json
+736 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/stringify-object/package.json
+737 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/stringstream/package.json
+738 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/strip-ansi/package.json
+739 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/strip-bom/package.json
+740 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/strip-indent/package.json
+741 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/supports-color/package.json
+742 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/swap-case/package.json
+743 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/tar-fs/package.json
+744 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/tar-stream/package.json
+745 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/throttleit/package.json
+746 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/through/package.json
+747 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/timers-ext/package.json
+748 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/title-case/package.json
+749 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/tmp/package.json
+750 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/touch/package.json
+751 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/tough-cookie/package.json
+752 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/traverse/package.json
+753 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/trim-newlines/package.json
+754 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/tunnel-agent/package.json
+755 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/typedarray/package.json
+756 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/uglify-js/package.json
+757 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/uglify-to-browserify/package.json
+758 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/uid-number/package.json
+759 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/underscore/package.json
+760 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/underscore.string/package.json
+761 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/union/package.json
+762 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/update-notifier/package.json
+763 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/upper-case/package.json
+764 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/upper-case-first/package.json
+765 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/user-home/package.json
+766 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/util-deprecate/package.json
+767 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/uuid/package.json
+768 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/validate-npm-package-license/package.json
+769 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/watch/package.json
+770 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/which/package.json
+771 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/win-release/package.json
+772 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/window-size/package.json
+773 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/wordwrap/package.json
+774 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/wrappy/package.json
+775 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/xdg-basedir/package.json
+776 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/xtend/package.json
+777 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/yargs/package.json
+778 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/ycssmin/package.json
+779 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/bower/package.json
+780 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/cake/package.json
+781 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/cdl/package.json
+782 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/cleancss/package.json
+783 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/coffee/package.json
+784 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/decompress-zip/package.json
+785 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/ecstatic/package.json
+786 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/esparse/package.json
+787 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/esvalidate/package.json
+788 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/gzip-size/package.json
+789 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/handlebars/package.json
+790 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/has-ansi/package.json
+791 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/html-minifier/package.json
+792 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/http-server/package.json
+793 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/js-yaml/package.json
+794 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/latest-version/package.json
+795 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/lessc/package.json
+796 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/mkdirp/package.json
+797 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/nopt/package.json
+798 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/nwbuild/package.json
+799 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/opener/package.json
+800 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/opn/package.json
+801 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/os-name/package.json
+802 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/osx-release/package.json
+803 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/pretty-bytes/package.json
+804 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/recess/package.json
+805 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/rimraf/package.json
+806 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/semver/package.json
+807 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/strip-ansi/package.json
+808 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/strip-indent/package.json
+809 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/supports-color/package.json
+810 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/uglifyjs/package.json
+811 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/user-home/package.json
+812 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/uuid/package.json
+813 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/watch/package.json
+814 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/which/package.json
+815 verbose targetResolver reading package data from /root/proyectos/GesCaRuV2/node_modules/.bin/ycssmin/package.json
+816 verbose already installed skipping grunt@^1.0.1 /root/proyectos/GesCaRuV2
+817 silly install resolved []
+818 verbose unlock done using /root/.npm/_locks/grunt-nw-builder-6bdf5d74e67c89f9.lock for /root/proyectos/GesCaRuV2/node_modules/grunt-nw-builder
+819 verbose validateInstall loading /root/proyectos/GesCaRuV2/package.json for validation
+820 verbose stack Error: The package grunt@0.4.5 does not satisfy its siblings' peerDependencies requirements!
+820 verbose stack     at /usr/lib/node_modules/npm/lib/install.js:125:32
+820 verbose stack     at /usr/lib/node_modules/npm/lib/install.js:268:7
+820 verbose stack     at /usr/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+820 verbose stack     at /usr/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+820 verbose stack     at cb (/usr/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+820 verbose stack     at /usr/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+820 verbose stack     at cb (/usr/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+820 verbose stack     at /usr/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+820 verbose stack     at cb (/usr/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+820 verbose stack     at /usr/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+821 verbose cwd /root/proyectos/GesCaRuV2
+822 error Linux 3.16.0-4-686-pae
+823 error argv "/usr/bin/nodejs" "/usr/bin/npm" "install" "grunt-nw-builder" "--save-dev"
+824 error node v4.4.7
+825 error npm  v2.15.8
+826 error code EPEERINVALID
+827 error peerinvalid The package grunt@0.4.5 does not satisfy its siblings' peerDependencies requirements!
+827 error peerinvalid Peer grunt-bower-install-simple@0.9.3 wants grunt@>=0.4.1
+827 error peerinvalid Peer grunt-bump@0.0.15 wants grunt@>=0.4.0
+827 error peerinvalid Peer grunt-contrib-clean@0.6.0 wants grunt@~0.4.0
+827 error peerinvalid Peer grunt-contrib-copy@0.5.0 wants grunt@~0.4.0
+827 error peerinvalid Peer grunt-contrib-htmlmin@0.3.0 wants grunt@~0.4.0
+827 error peerinvalid Peer gruntfile-gtx@0.3.0 wants grunt@~0.4.1
+827 error peerinvalid Peer grunt-nw-builder@3.0.0 wants grunt@^1.0.1
+827 error peerinvalid Peer grunt-changelog@0.2.2 wants grunt@~0.4.0
+827 error peerinvalid Peer grunt-concurrent@0.5.0 wants grunt@~0.4.0
+827 error peerinvalid Peer grunt-contrib-concat@0.5.1 wants grunt@>=0.4.0
+827 error peerinvalid Peer grunt-contrib-uglify@0.5.1 wants grunt@~0.4.0
+828 verbose exit [ 1, true ]

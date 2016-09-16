@@ -1,0 +1,36 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">Compra de CCP</h1>
+</div>
+<div class="wrapper-md">
+<div class="panel-heading font-bold"></div>
+  <div class="panel-body">
+    <form class="bs-example form-horizontal">
+<!-- <div class="modal-body"> -->
+      <div class="form-group col-sm-12" >
+        <div class="col-sm-12" >
+ <!--  <div class="row" ng-show="item.tipoOperacion=='Traspaso'"> -->
+  
+          <div class="row" >
+            Indique la cedula del socio acreedor de los CCP
+                      <ui-select ng-model="item.propietario" theme="bootstrap" ng-change="consultaCcp(item)" >
+                        <ui-select-match placeholder="Cédula ...">{{$select.selected.cedula}}</ui-select-match>
+                        <ui-select-choices group-by="'nombre'" repeat="item as item in socios| filter: $select.search">
+                          <span ng-bind-html="item.cedula | highlight: $select.search"></span>
+                          <span ng-bind-html="item.nombres | highlight: $select.search"></span>
+                          
+                        </ui-select-choices>
+                      </ui-select>
+
+
+          </div> 
+          {{item.totalCcp}}
+          <input type="number" name="cantidad" class="form-control" ng-model="item.cantidad" max="{{item.totalCcp}}">
+          </div>
+
+          </div>
+          <button type="button" class="btn btn-default btn-rounded"  ng-click="registrarCompra(item)">Finalizar</button>
+          </form>
+          </div>
+          </div>
+
+</div>

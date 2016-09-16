@@ -10,22 +10,28 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', 'MyService'
     $scope.login = function() {
       $scope.authError = null;
       // Try to login
-       $http.get('http://localhost:1337/usergesgan/?email=' +$scope.user.email).success(function(respuesta){
+       $http.get('http://localhost:1340/socio/?correo=' +$scope.user.correo).success(function(respuesta){
                 // if ($scope.email=== 'undefined'){$scope.mensaje="usuario no registrado"}
                      // if (vm.dato !== vm.login.usuario){vm.login.mensaje="usuario no registrado"}
                 $scope.datos = respuesta.results[0];
                 MyService.data.datos=$scope.datos;
+                MyService.data.idCaja=$scope.datos.idCaja;
                 // alert("email: "+$scope.datos[0].email);
                 // vm.dato = vm.paises[0].usuario;
                 // vm.tipoUsuario= vm.paises[0].tipoUsuario;
                 // vm.identificador=vm.paises[0].id;
                 // vm.dato2= vm.paises[0].pass;
-                 if ($scope.datos.email == $scope.user.email && $scope.datos.password == $scope.user.password)
+                $http.get('http://localhost:1340/config/?idCaja='+$scope.datos.idCaja).success(function(respuesta){
+                 $scope.configuracion = respuesta.results[0];
+                 MyService.data.valorCcp=$scope.configuracion.precioCcp;
+                
+                });
+                 if ($scope.datos.correo == $scope.user.correo && $scope.datos.pass == $scope.user.pass)
                 
                     {
-                       $scope.app.nombre=$scope.datos.nombre;
+                       $scope.app.nombres=$scope.datos.nombres;
                       MyService.data.idUsuario=$scope.datos.id;
-                       $scope.app.usuario=$scope.datos.email;
+                       $scope.app.usuario=$scope.datos.correo;
                       // alert("hola" +MyService.data.idUsuario);
                       $state.go('app.dashboard-v1');
                     }

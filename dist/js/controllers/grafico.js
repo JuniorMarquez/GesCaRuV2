@@ -1,6 +1,6 @@
 'use strict';
 app.controller('graficoCtrl', ['$scope', '$http', '$filter', '$modal', 'MyService', 'filterFilter', function($scope, $http, $filter,$modal, MyService,filterFilter) {
-$http.get('http://localhost:1337/ordeno/?idAnimal='+MyService.data.animalConsultado.id).then(function (resp) {
+$http.get('http://localhost:1340/ordeno/?idAnimal='+MyService.data.animalConsultado.id).then(function (resp) {
       $scope.ordenos = resp.data.results;
 
       // MyService.data.ordenos=resp.data.results;

@@ -1,0 +1,49 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">Traspaso de CCP</h1>
+</div>
+<div class="wrapper-md">
+<div class="panel-heading font-bold"></div>
+  <div class="panel-body">
+    <form class="bs-example form-horizontal">
+<!-- <div class="modal-body"> -->
+      <div class="form-group col-sm-12" >
+        <div class="col-sm-12" >
+ <!--  <div class="row" ng-show="item.tipoOperacion=='Traspaso'"> -->
+  <div class="row" >
+            Indique la cedula del socio propietario de los CCP
+                      <ui-select ng-model="item.propietario" ng-change="consultaCcp(item)"theme="bootstrap" >
+                        <ui-select-match placeholder="Cédula ...">{{$select.selected.cedula}}</ui-select-match>
+                        <ui-select-choices group-by="'nombre'" repeat="item as item in socios| filter: $select.search">
+                          <span ng-bind-html="item.cedula | highlight: $select.search"></span>
+                          <span ng-bind-html="item.nombres | highlight: $select.search"></span>
+                          
+                        </ui-select-choices>
+                      </ui-select>
+
+
+          </div> 
+          <div class="row" ng-show="item.propietario">
+            Indique la cedula del socio acreedor de los CCP
+                      <ui-select ng-model="item.acreedor" theme="bootstrap" >
+                        <ui-select-match placeholder="Cédula ...">{{$select.selected.cedula}}</ui-select-match>
+                        <ui-select-choices group-by="'nombre'" repeat="item as item in socios| filter: $select.search">
+                          <span ng-bind-html="item.cedula | highlight: $select.search"></span>
+                          <span ng-bind-html="item.nombres | highlight: $select.search"></span>
+                          
+                        </ui-select-choices>
+                      </ui-select>
+
+
+          </div> 
+
+
+          </div>
+          </div>
+          <div class="form-group col-sm-12" >
+            Total de CCP disponibles: {{item.totalCcp}}
+          </div>
+          </form>
+          </div>
+          </div>
+
+</div>

@@ -99,7 +99,7 @@ app.controller('SelectCtrl', function($scope, $http, $timeout) {
         };
 
         $scope.person = {};
-  //        $http.get('http://localhost:1337/genero').then(function (resp) {
+  //        $http.get('http://localhost:1340/genero').then(function (resp) {
   //   $scope.groups = resp.data.results;
 
   // });

@@ -6,7 +6,7 @@ app.controller('IndexController', ['$scope', '$http', '$filter', '$modal', 'MySe
 $scope.date = moment();
 }]);
 
-app.controller('historicoAnimalCtrl', ['$scope', '$http', '$filter', '$modal', 'MyService', 'filterFilter', 'datepickerConfig',function($scope, $http, $filter,$modal, MyService,filterFilter, datepickerConfig) {
+app.controller('creditoCtrl', ['$scope', '$http', '$filter', '$modal', 'MyService', 'filterFilter', 'datepickerConfig',function($scope, $http, $filter,$modal, MyService,filterFilter, datepickerConfig) {
     $scope.getGrafico =function(){
       $scope.nombre=MyService.data.animalConsultado.nombre;
       $http.get('http://localhost:1340/ordeno/?idAnimal='+MyService.data.animalConsultado.id).then(function (resp) {
@@ -46,6 +46,7 @@ app.controller('historicoAnimalCtrl', ['$scope', '$http', '$filter', '$modal', '
     $scope.clear = function () {
       $scope.fechaFin = null;
     };
+
 
     // Disable weekend selection
     // $scope.disabled = function(date, mode) {

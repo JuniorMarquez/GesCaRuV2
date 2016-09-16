@@ -1,0 +1,61 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">Depósito Cta. ahorro</h1>
+</div>
+<div class="wrapper-md">
+  <tabset class="tab-container" ng-init="steps={percent:20, step1:true, step2:false, step3:false}">
+    <tab heading="Paso 1" active="steps.step1" select="steps.percent=10">
+      <p class="m-b"></p>
+      <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+      
+      <form name="step1" class="form-validation">
+        <p>Indique por favor la cédula del socio</p>
+
+        <ui-select ng-model="item.socio" theme="bootstrap" required ng-change="consultaCuentas(item)">
+                        <ui-select-match placeholder="Cédula ...">{{$select.selected.cedula}}</ui-select-match>
+                        <ui-select-choices group-by="'nombre'" repeat="item as item in socios| filter: $select.search">
+                          <span ng-bind-html="item.cedula | highlight: $select.search"></span>
+                          <span ng-bind-html="item.nombres | highlight: $select.search"></span>
+                          
+                        </ui-select-choices>
+                      </ui-select>
+  <!--       <input type="email" name="email" class="form-control" ng-model="email" required ng-change="step1.email.$valid ? (steps.percent=30) : (steps.percent=20)"> -->
+      <!--   <p class="m-t">Your website:</p>
+        <input type="url" name="url" placeholder="http://" class="form-control" ng-model="website" required> -->
+        <div class="m-t m-b">
+          <button type="submit" ng-disabled="step1.$invalid" class="btn btn-default btn-rounded"  ng-click="steps.step2=true" >Siguiente</button>
+        </div>
+      </form>
+    </tab>
+    <tab heading="Paso 2" disabled="step1.$invalid" active="steps.step2" select="steps.percent=30">
+      <form name="step2" class="form-validation">
+        <p class="m-b"></p>
+        <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+        <p>Indique por favor la cuenta acreedora</p>
+       <ui-select ng-model="item.cuenta" theme="bootstrap" required >
+                        <ui-select-match placeholder="Cuenta ...">{{$select.selected.numeroCuenta}}</ui-select-match>
+                        <ui-select-choices group-by="'numeroCuenta'" repeat="item as item in cuentas| filter: $select.search">
+                          <span ng-bind-html="item.numeroCuenta | highlight: $select.search"></span>
+                         
+                          
+                        </ui-select-choices>
+                      </ui-select>
+        <div class="m-t m-b">
+        
+          <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step1=true" ng-click="limpiar(item)">Anterior</button>
+          <button type="submit" ng-disabled="step2.$invalid" class="btn btn-default btn-rounded" ng-click="steps.step3=true">Siguiente</button>
+        </div>
+      </form>
+    </tab>
+    <tab heading="Step 3" disabled="step2.$invalid" active="steps.step3" select="steps.percent=60">
+      <p class="m-b"></p>
+      <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+      <p>Indique por favor el monto a depositar</p>
+      <div class="m-t m-b">
+      <input type="number" name="monto" class="form-control" ng-model="item.monto" >
+        <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step2=true">Anterior</button>
+        <button type="button" class="btn btn-default btn-rounded"  ng-click="registrarDeposito(item)">Finalizar</button>
+    <!--      <button type="button" class="btn btn-default btn-rounded" ng-click="steps.percent=100" ng-click="registrarRetiro(item)">Finalizar</button> -->
+      </div>
+    </tab>
+  </tabset>
+</div>

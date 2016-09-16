@@ -97,7 +97,497 @@
   }])
   ;
 
-  app.controller('ModalInstanceCtrl', ['$scope', '$http', '$modalInstance', 'items', 'MyService', 'dato','datosCuenta', function($scope, $http, $modalInstance, items, MyService, dato,datosCuenta) {
+  app.controller('ModalInstanceCtrl', [
+
+
+'$scope', '$http', '$modalInstance', 'items', 'MyService', 'dato','datosCuenta', '$filter', '$modal','filterFilter', 'toaster',function($scope, $http, $modalInstance, items, MyService, dato,datosCuenta,$filter,$modal,filterFilter,toaster) {
+      $scope.toaster = {
+    typeAsistencia: 'info',
+    textAsistencia: 'Asistencia registrada con exito',
+    titleAsistencia: 'Informacion'    
+  };
+  $scope.popAsistencia = function(){
+    toaster.pop($scope.toaster.typeAsistencia, $scope.toaster.titleAsistencia, $scope.toaster.textAsistencia);
+  };
+$scope.tbOptions3 = {
+      bDestroy: true,
+      pageLength: 5,
+      data: []
+                                                     
+    };
+    $scope.tbOptions4 = {
+      bDestroy: true,
+      pageLength: 5,
+      data: []
+                                                     
+    };
+$scope.consultaCcp2=function(item,$timeout){
+var identificador = item.propietario.id;
+var tipo=item.propietario.tipoUsuario;
+$http.get('http://localhost:1340/tasa/?idCaja='+MyService.data.idCaja).then(function (resp) {
+      $scope.tasas = resp.data.results;
+    });
+
+// if (tipo==1){$scope.item.tasa=30};
+// if (tipo==2){$scope.item.tasa=30};
+// if (tipo==3){$scope.item.tasa=40};
+// if (tipo==4){$scope.item.tasa=40};
+// if (tipo==5){$scope.item.tasa=40};
+// if (tipo==6){$scope.item.tasa=40};
+// alert("dato"+identifitem.propietarioicador);
+$scope.operacionesCcp={};
+ $http.get('http://localhost:1340/operacionesCcp/?id_socio='+identificador).then(function (resp) {
+      $scope.operacionesCcp = resp.data.results;
+    });
+     setTimeout(function() {var totalCcp = 0;
+      for (var i= 0; i < $scope.operacionesCcp.length ; i++){
+            totalCcp = totalCcp+parseInt($scope.operacionesCcp[i].cantidad);
+          }
+          $scope.item.eq=MyService.data.equivalente;
+          $scope.item.valor=MyService.data.valorCcp;
+    $scope.item.totalCcp=totalCcp;
+    $scope.item.numeroMeses=MyService.data.numeroMeses;
+    $scope.item.equivalente=totalCcp*MyService.data.equivalente;
+    $scope.item.solicitado=$scope.item.equivalente;
+     $scope.item.maximo=$scope.item.equivalente*MyService.data.valorCcp;
+     $scope.item.monto=$scope.item.equivalente*MyService.data.valorCcp;
+$scope.item.maximoPlazo=MyService.data.numeroMeses;
+$scope.item.intereses=((($scope.item.solicitado)*($scope.item.tasa)/100)*($scope.item.numeroMeses*30))/360;
+$scope.item.cuota=($scope.item.solicitado+$scope.item.intereses)/$scope.item.numeroMeses;
+$scope.item.totalAPagar=((($scope.item.solicitado*MyService.data.valorCcp)*$scope.item.tasa)/100)+($scope.item.solicitado*MyService.data.valorCcp);
+
+  }, 1000);
+
+    
+
+};
+
+
+$scope.consultaCreditos=function(item,$timeout){
+var identificador = item.propietario.id;
+var tipo=item.propietario.tipoUsuario;
+
+// alert("dato"+identifitem.propietarioicador);
+$scope.creditos={};
+ $http.get('http://localhost:1340/credito/?id_socio='+identificador).then(function (resp) {
+      $scope.creditos = resp.data.results;
+    });
+};
+
+$scope.consultaCredito=function(item,$timeout){
+var identificador = item.propietario.id;
+var numero=item.credito.numero;
+
+// alert("dato"+identifitem.propietarioicador);
+$scope.credito={};
+
+
+      $http.get('http://localhost:1340/credito/?numero=' +numero).success(function(respuesta){
+                // if ($scope.email=== 'undefined'){$scope.mensaje="usuario no registrado"}
+                     // if (vm.dato !== vm.login.usuario){vm.login.mensaje="usuario no registrado"}
+        $scope.datos = respuesta.results[0];
+        $scope.item.monto=$scope.datos.montoCuota;
+
+      });
+
+
+ // $http.get('http://localhost:1340/credito/?id_socio='+identificador).then(function (resp) {
+ //      $scope.creditos = resp.data.results;
+ //    });
+};
+$scope.today = function() {
+      $scope.fechaInicio = new Date();
+    };
+    // $scope.today();
+
+    $scope.clear = function () {
+      $scope.fechaFin = null;
+    };
+
+
+    // Disable weekend selection
+    // $scope.disabled = function(date, mode) {
+    //   return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+    // };
+
+    $scope.toggleMin = function() {
+      $scope.minDate = $scope.minDate ? null : new Date();
+    };
+    $scope.toggleMin();
+
+    $scope.open = function($event) {
+      $event.preventDefault();
+      $event.stopPropagation();
+
+      $scope.opened = true;
+    };
+    
+
+    $scope.dateOptions = {
+      formatYear: 'yy',
+      startingDay: 1,
+      class: 'datepicker'
+    };
+
+    $scope.initDate = new Date('2016-15-20');
+    $scope.formats = ['dd/MM/yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+    $scope.format = 'MM/dd/yyyy';
+
+$scope.sumaFecha = function(d, fecha)
+{
+ var Fecha = new Date();
+ var sFecha = fecha || (Fecha.getDate() + "/" + (Fecha.getMonth() +1) + "/" + Fecha.getFullYear());
+ var sep = sFecha.indexOf('/') != -1 ? '/' : '-'; 
+ var aFecha = sFecha.split(sep);
+ var fecha = aFecha[2]+'/'+aFecha[1]+'/'+aFecha[0];
+ fecha= new Date(fecha);
+ fecha.setDate(fecha.getDate()+parseInt(d));
+ var anno=fecha.getFullYear();
+ var mes= fecha.getMonth()+1;
+ var dia= fecha.getDate();
+ mes = (mes < 10) ? ("0" + mes) : mes;
+ dia = (dia < 10) ? ("0" + dia) : dia;
+ var fechaFinal = dia+sep+mes+sep+anno;
+ $scope.item.dateVencimiento=fechaFinal;
+ return (fechaFinal);
+
+ }
+ $scope.item={};
+$scope.item.date = new Date();
+$scope.calculoEquivalente2=function(item,$timeout){
+ if ($scope.item.cobro!="adelantado"){
+$scope.item.cobro='fraccionado'};
+// alert("dato"+identificador);
+$scope.item.solicitado=$scope.item.monto/MyService.data.valorCcp;
+// $scope.item.monto=$scope.item.solicitado*MyService.data.valorCcp;
+$scope.item.intereses=
+(($scope.item.solicitado*MyService.data.valorCcp)*
+  (($scope.item.tasa)/100)*
+  (($scope.item.numeroMeses*30))/360);
+$scope.item.cuota=($scope.item.solicitado*MyService.data.valorCcp)/$scope.item.numeroMeses+($scope.item.intereses/$scope.item.numeroMeses);
+if ($scope.item.cobro=="adelantado"){
+  $scope.item.cuota=$scope.item.cuota-($scope.item.intereses/$scope.item.numeroMeses);
+};
+$scope.item.totalAPagar=$scope.item.intereses+$scope.item.monto;
+   // var dateVencimiento=Date()+(item.numeroMeses*30);
+// $scope.item.dateVencimiento=Date.parse(dateVencimiento);
+    var d=item.numeroMeses*30;
+$scope.sumaFecha(d);
+};
+
+
+$scope.calculoEquivalente=function(item,$timeout){
+
+var date = new Date();
+var dateVencimiento=Date()+(item.numeroMeses*30);
+$scope.item.dateVencimiento=Date.parse(dateVencimiento); 
+var mes = date.getMonth();
+var hoy = new Date(date.getFullYear(), date.getMonth());
+
+var today = Date.parse(date);
+// end_date=end_date+86400000; /
+
+// alert ("hoy:"+today);
+$scope.item.date=today;
+var d=item.numeroMeses*30;
+$scope.sumaFecha(d);
+// var identificador = item.propietario.id;
+// alert("dato"+identificador);
+$scope.item.monto=$scope.item.solicitado*MyService.data.valorCcp;
+$scope.item.intereses/=
+(($scope.item.solicitado*MyService.data.valorCcp)*
+  (($scope.item.tasa)/100)*
+  (($scope.item.numeroMeses*30))/360);
+$scope.item.cuota=($scope.item.solicitado*MyService.data.valorCcp)/$scope.item.numeroMeses+($scope.item.intereses/$scope.item.numeroMeses);
+if ($scope.item.cobro=="adelantado"){
+  $scope.item.cuota=$scope.item.cuota-($scope.item.intereses/$scope.item.numeroMeses);
+};
+$scope.item.totalAPagar=$scope.item.intereses+$scope.item.monto;
+};
+
+// $scope.calculoVencimiento = function(){
+//   var dateVencimiento=Date()+($scope.item.numeroMeses*30);
+// };
+// $scope.calculoVencimiento();
+
+$scope.consultaCcp=function(item,$timeout){
+var identificador = item.propietario.id;
+// alert("dato"+identificador);
+$scope.operacionesCcp={};
+ $http.get('http://localhost:1340/operacionesCcp/?id_socio='+identificador).then(function (resp) {
+      $scope.operacionesCcp = resp.data.results;
+    });
+     setTimeout(function() {var totalCcp = 0;
+      for (var i= 0; i < $scope.operacionesCcp.length ; i++){
+            totalCcp = totalCcp+parseInt($scope.operacionesCcp[i].cantidad);
+          }
+    $scope.item.totalCcp=totalCcp;}, 1000);
+
+    
+
+};
+
+
+  
+ $scope.registrarSolicitud=function(item){
+      var solicitud={};
+
+      solicitud.id_socio=item.propietario.id;
+      solicitud.tasaInteres=item.tasa;
+      solicitud.precioCcp=MyService.data.valorCcp;
+      solicitud.tipoDeCredito="interno";
+      solicitud.numeroMeses=item.numeroMeses;
+      solicitud.numeroDeCcp=item.totalCcp;
+      solicitud.montoSolicitado=item.monto;
+      solicitud.montoIntereses=item.intereses;
+      solicitud.montoCuota=item.cuota;
+      solicitud.montoTotalAPagar=item.totalAPagar;
+      solicitud.equivalente=item.eq;
+      solicitud.cobro=item.cobro;
+     
+      solicitud.fiadorUno=item.fiadorUno.id;
+      solicitud.fiadorDos=item.fiadorDos.id;
+      solicitud.estado="Pendiente";
+      solicitud.numero=item.numero;
+      solicitud.proposito=item.proposito;
+      
+
+      $http.post('http://localhost:1340/credito/' ,solicitud);
+      
+      $modalInstance.close();
+    };
+
+
+$scope.registrarPago=function(item){
+      var pago={};
+
+      pago.id_socio=item.propietario.id;
+      pago.numero=item.numero;
+      pago.monto=item.monto;
+      
+      
+
+      $http.post('http://localhost:1340/pago/' ,pago);
+      
+      $modalInstance.close();
+    };
+
+    $scope.registrarTraspaso=function(item){
+      var operacion={};
+       var operacion2={};
+      operacion.id_socio=item.acreedor.id;
+      operacion.tipoOperacion="traspaso";
+      operacion.precioCcp=MyService.data.valorCcp;
+      operacion.cantidad=item.cantidad;
+      operacion.monto=item.cantidad*MyService.data.valorCcp;
+     
+      operacion2.id_socio=item.propietario.id;
+      operacion2.tipoOperacion="traspaso";
+      operacion2.precioCcp=MyService.data.valorCcp;
+      operacion2.cantidad=item.cantidad*(-1);
+      operacion2.monto=item.cantidad*MyService.data.valorCcp;
+
+      $http.post('http://localhost:1340/operacionesccp/' ,operacion);
+      $http.post('http://localhost:1340/operacionesccp/' ,operacion2);
+      $modalInstance.close();
+    };
+    $scope.registrarCompra=function(item){
+     var operacion={};
+      operacion.id_socio=item.propietario.id;
+      operacion.tipoOperacion="compra";
+      operacion.precioCcp=MyService.data.valorCcp;
+      operacion.cantidad=item.cantidad;
+      operacion.monto=item.cantidad*MyService.data.valorCcp;
+      $http.post('http://localhost:1340/operacionesccp/' ,operacion);
+      $modalInstance.close();
+    };
+
+
+$scope.entrar=function(item,$timeout){
+  $scope.item.id=MyService.data.identificador;
+  $scope.operacionesCuentaAhorro={};
+ 
+
+
+// alert("item" +item.id);
+ $http.get('http://localhost:1340/opcuah/?idSocio='+item.id).then(function (resp) {
+              $scope.operacionesCuentaAhorro = resp.data.results;
+               
+              // alert("tamaño: "+$scope.operacionesCuentaAhorro.length);
+            });
+
+
+
+ 
+ for (var i= 0; i < $scope.operacionesCuentaAhorro.length ; i++){
+                if ($scope.operacionesCuentaAhorro[i].tipoOperacion=="retiro"){
+                  $scope.tabla[i].fecha=$scope.operacionesCuentaAhorro[i].createdAt;
+                  $scope.tabla[i].descripcion="Retiro cta. ahorro";
+                  $scope.tabla[i].ingreso="";
+                  $scope.tabla[i].egreso=$scope.operacionesCuentaAhorro[i].monto;
+                } 
+                else {
+                  $scope.tabla[i].fecha=$scope.operacionesCuentaAhorro[i].createdAt;
+                  $scope.tabla[i].descripcion="Deposito cta. ahorro";
+                  $scope.tabla[i].ingreso=$scope.operacionesCuentaAhorro[i].monto;
+                  $scope.tabla[i].egreso="";
+                } 
+         // $scope.tbOptions3.aaData = $scope.tabla;
+              };
+
+setTimeout(function() {
+  // alert("tamaño t: "+$scope.operacionesCuentaAhorro.length);
+
+               $scope.tbOptions3.data = $scope.operacionesCuentaAhorro;
+                  $scope.tbOptions3.aoColumns=[
+          { mData: 'createdAt' },
+          { mData: 'monto' },
+          { mData: 'idSocio' },
+          { mData: 'tipoOperacion' }                              
+          ];
+        }, 200);
+
+
+
+
+  
+};
+
+
+
+
+
+
+
+
+$scope.entrar4=function(item,$timeout){
+  $scope.item.id=MyService.data.identificador;
+  $scope.operacionesCcp={};
+
+ $http.get('http://localhost:1340/regasistencia/').then(function (resp) {
+              $scope.registros = resp.data.results;
+
+            });
+
+ $http.get('http://localhost:1340/socio/').then(function (resp) {
+              $scope.socios = resp.data.results;
+
+            });
+
+
+
+
+
+
+  
+};
+
+
+
+
+
+
+
+$scope.entrar2=function(item,$timeout){
+  $scope.item.id=MyService.data.identificador;
+  $scope.operacionesCcp={};
+
+ $http.get('http://localhost:1340/operacionesccp/?id_socio='+item.id).then(function (resp) {
+              $scope.operacionesCcp = resp.data.results;
+               
+             
+            });
+
+
+
+setTimeout(function() {
+
+               $scope.tbOptions4.data = $scope.operacionesCcp;
+                  $scope.tbOptions4.aoColumns=[
+          { mData: 'createdAt' },
+           { mData: 'cantidad' },
+          { mData: 'monto' },
+          { mData: 'idSocio' },
+          { mData: 'tipoOperacion' }                              
+          ];
+        }, 200);
+
+
+
+
+  
+};
+
+
+
+
+
+/*$scope.tbOptions3.data = $scope.tabla;
+         $scope.tbOptions3.aaData = $scope.tabla;*/
+$scope.okRegAsistenciaQuede = function (item){
+     $scope.popAsistencia();
+      var registro={};
+      registro.socio=item.socio.id;
+       registro.idRegistro=item.registro.id;
+      registro.descripcionRegistro=item.registro.descripcion;
+      // registro.idCuenta=item.cuenta.id;
+      // registro.tipoOperacion="deposito";
+         $http.post('http://localhost:1340/asistencia/', registro);
+       $scope.item.socio="";
+           // $modalInstance.close();  
+           
+           $scope.entrar4(); 
+           
+    };
+
+
+$scope.okRegAsistenciaSalir = function (item){
+     
+      var registro={};
+      registro.socio=item.socio.id;
+      registro.idRegistro=item.registro.id;
+      registro.descripcionRegistro=item.registro.descripcion;
+      // registro.idCuenta=item.cuenta.id;
+      // registro.tipoOperacion="deposito";
+         $http.post('http://localhost:1340/asistencia/', registro);
+         $scope.popAsistencia();
+           $modalInstance.close();
+    };
+
+
+
+     $scope.limpiar = function (item){
+    
+      $scope.item.cuenta="";
+    };
+  $scope.consultaCuentas = function (item){
+    $scope.item.cuenta="";
+       $http.get('http://localhost:1340/cuent/?idSocio='+item.socio.id).then(function (resp2) {
+    $scope.cuentas = resp2.data.results;
+
+       });
+    };
+     $scope.registrarDeposito = function (item){
+      item.tipoOperacion="deposito";
+      var registro={};
+      registro.monto=item.monto;
+      registro.idSocio=item.socio.id;
+      registro.idCuenta=item.cuenta.id;
+      registro.tipoOperacion="deposito";
+         $http.post('http://localhost:1340/opcuah/', registro);
+           $modalInstance.close();
+    };
+    $scope.registrarRetiro = function (item){
+      item.tipoOperacion="retiro";
+      var registro={};
+      registro.monto=item.monto;
+      registro.idSocio=item.socio.id;
+      registro.idCuenta=item.cuenta.id;
+      registro.tipoOperacion="retiro";
+         $http.post('http://localhost:1340/opcuah/', registro);
+           $modalInstance.close();
+    };
+
     // $scope.item={};
     // $scope.items = items;
     // $scope.selected = {
@@ -226,8 +716,39 @@ $scope.item.idSocio=dato.id;
   
 
 
-    $scope.mensajeBorrado="Al borrar este animal, se perderá de manera definitiva toda la información referente al mismo, está seguro de querer borrarlo?";
-    
+    $scope.mensajeBorrado="Al borrar este socio, se perderá de manera definitiva toda la información referente al mismo, está seguro de querer borrarlo?";
+     $scope.okOperacionesCcp = function (item) {
+     
+      if (item.tipoOperacion=='Compra'){
+         var operacion={};
+      operacion.id_socio=item.idSocio;
+      operacion.tipoOperacion='compra';
+      operacion.precioCcp=item.valorCcp;
+      operacion.cantidad=item.cantidad;
+      operacion.monto=item.monto;
+        $http.post('http://localhost:1340/operacionesccp/' ,operacion);
+      }
+      if (item.tipoOperacion=='Traspaso'){
+         var operacion={};
+      operacion.id_socio=item.acreedor.id;
+      operacion.tipoOperacion='traspaso';
+      operacion.precioCcp=item.valorCcp;
+      operacion.cantidad=item.cantidad;
+      operacion.monto=item.monto;
+      var operacion2={};
+      operacion2.id_socio=item.idSocio;
+      operacion2.tipoOperacion='traspaso';
+      operacion2.precioCcp=item.valorCcp;
+      operacion2.cantidad=item.cantidad*(-1);
+      operacion2.monto=item.monto;
+      $http.post('http://localhost:1340/operacionesccp/' ,operacion);
+        $http.post('http://localhost:1340/operacionesccp/' ,operacion2);
+      }
+      $modalInstance.close();
+
+       
+    };
+
     $scope.okSalto = function (item) {
       var idAnimal=MyService.data.identificador;
       item.idAnimal=idAnimal;
@@ -236,10 +757,7 @@ $scope.item.idSocio=dato.id;
       item.numero=MyService.data.numero;
       $http.post('http://localhost:1340/salto/' ,item);  
       $modalInstance.close();
-      // var pas = item._id;
-      // $scope.ordenosFiltrados = $scope.ordenos.filter(function (ordeno) {
-      //   return (ordeno.idAnimal == pas );
-      // });
+     
     };
 $scope.limpiar=function(item){
   $scope.item.mensaje="";
@@ -290,6 +808,43 @@ var guachiman = false;
       //   return (ordeno.idAnimal == pas );
       // });
     };
+
+$scope.okRegAsistencia = function (item,$timeout) {
+    var identificador = item.id;
+    var Reg={};
+    Reg.descripcion=item.descripcion;
+    Reg.fechaRegistro=item.fecha;
+    Reg.observaciones=item.observaciones;
+      $http.post('http://localhost:1340/regasistencia/' ,Reg);  
+      $modalInstance.close();
+      // var pas = item._id;
+      // $scope.ordenosFiltrados = $scope.ordenos.filter(function (ordeno) {
+      //   return (ordeno.idAnimal == pas );
+      // });
+    };
+
+
+$scope.consultaCcp=function(item,$timeout){
+var identificador = item.propietario.id;
+// alert("dato"+identificador);
+$scope.operacionesCcp={};
+ $http.get('http://localhost:1340/operacionesCcp/?id_socio='+identificador).then(function (resp) {
+      $scope.operacionesCcp = resp.data.results;
+    });
+     setTimeout(function() {var totalCcp = 0;
+      for (var i= 0; i < $scope.operacionesCcp.length ; i++){
+            totalCcp = totalCcp+parseInt($scope.operacionesCcp[i].cantidad);
+          }
+    $scope.item.totalCcp=totalCcp;}, 1000);
+
+    
+
+};
+
+
+
+
+
     $scope.okOrdeno = function (item) {
       var idAnimal=MyService.data.identificador;
       item.idAnimal=idAnimal;
@@ -495,44 +1050,27 @@ $scope.okMedicamento = function (item) {
     $scope.items = ['item1', 'item2', 'item3'];
 
 
-// $scope.openBano = function () {
-    
-//       var modalInstance = $modal.open({
-//         templateUrl: 'modalBano.html',
-//         controller: 'ModalInstanceCtrl',
-//         size: 'sm',
-//         resolve: {
-//           items: function () {
-//             return $scope.items;
-//           }
-//         }
-//       });
-//     modalInstance.result.then(function (selectedItem) {
-//       $scope.selected = selectedItem;
-//     }, function () {
-//       $log.info('Modal dismissed at: ' + new Date());
-//     });
-//   };
 
-    $scope.open = function (item) {
-      var identificador =item.id;
-      var modalInstance = $modal.open({
-        templateUrl: 'myModalContent.html',
-        controller: 'ModalInstanceCtrl',
-        size: 'lg',
-        resolve: {
-          items: function () {
-            return $scope.items;
-          }
-        }
-      });
 
-      modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
-      }, function () {
-        $log.info('Modal dismissed at: ' + new Date());
-      });
-    };
+    // $scope.open = function (item) {
+    //   var identificador =item.id;
+    //   var modalInstance = $modal.open({
+    //     templateUrl: 'myModalContent.html',
+    //     controller: 'ModalInstanceCtrl',
+    //     size: 'lg',
+    //     resolve: {
+    //       items: function () {
+    //         return $scope.items;
+    //       }
+    //     }
+    //   });
+
+    //   modalInstance.result.then(function (selectedItem) {
+    //     $scope.selected = selectedItem;
+    //   }, function () {
+    //     $log.info('Modal dismissed at: ' + new Date());
+    //   });
+    // };
   }])
   ; 
   app.controller('PaginationDemoCtrl', ['$scope', '$log', function($scope, $log) {

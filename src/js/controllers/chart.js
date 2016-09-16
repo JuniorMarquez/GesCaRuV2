@@ -4,16 +4,61 @@
 
 app
   // Flot Chart controller 
-  .controller('FlotChartDemoCtrl', ['$scope', '$http','$modal','MyService','$state',function($scope,$http,$modal,MyService,$state) {
-    
-    $scope.openBano = function (item) {
-    // var identificador=item.id;
-    // MyService.data.identificador = identificador;
-      var modalInstance = $modal.open({
-        templateUrl: 'modalBano.html',
+  .controller('FlotChartDemoCtrl', [
+
+// '$scope', '$http', '$modalInstance', 'items', 'MyService', 'dato','datosCuenta', '$filter', '$modal','filterFilter', 'toaster',
+// function($scope, $http, $modalInstance, items, MyService, dato,datosCuenta,$filter,$modal,filterFilter,toaster) {
+    '$scope', '$http','$modal','MyService','$state','toaster','$filter','filterFilter',
+    function($scope,$http,$modal,MyService,$state,toaster,$filter,filterFilter) {
+    $scope.item={};
+    // $scope.filter = '';
+    $scope.toaster = {
+    typeAsistencia: 'info',
+    textAsistencia: 'Asistencia registrada con exito',
+    titleAsistencia: 'Informacion'    
+  };
+  $scope.popAsistencia = function(){
+    toaster.pop($scope.toaster.typeAsistencia, $scope.toaster.titleAsistencia, $scope.toaster.textAsistencia);
+  };
+    $scope.okRegAsistenciaQuede = function (item){
+      var registro={};
+      registro.socio=item.socio.id;
+      registro.idRegistro=item.registro.id;
+      registro.descripcionRegistro=item.registro.descripcion;
+      $http.post('http://localhost:1340/asistencia/', registro);
+      $scope.item.socio="";
+      $scope.entrar4(); 
+      $scope.popAsistencia();
+    };
+
+
+
+  $scope.entrar4=function(item,$timeout){
+    $http.get('http://localhost:1340/regasistencia/').then(function (resp) {
+      $scope.registros = resp.data.results;
+    });
+    $http.get('http://localhost:1340/socio/').then(function (resp) {
+      $scope.socios = resp.data.results;
+    });
+  };
+  $scope.openRegAsistencia = function () {
+    var dato="";
+    var datosCuenta="";
+    var item="";
+    var modalInstance = $modal.open({
+        templateUrl: 'modalRegAsistencia.html',
         controller: 'ModalInstanceCtrl',
-        size: 'sm',
+        size: 'lg',
         resolve: {
+
+           dato: function  () {
+            return item;
+            // body...
+          },
+           datosCuenta: function  () {
+            return datosCuenta;
+            // body...
+          },
           items: function () {
             return $scope.items;
           }
@@ -22,7 +67,233 @@ app
     modalInstance.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
+    //  $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+  $scope.openAsistencia = function () {
+    var dato="";
+    var datosCuenta="";
+    var item="";
+    var modalInstance = $modal.open({
+        templateUrl: 'modalAsistencia.html',
+        controller: 'ModalInstanceCtrl',
+        size: 'sm',
+        resolve: {
+
+           dato: function  () {
+            return item;
+            // body...
+          },
+           datosCuenta: function  () {
+            return datosCuenta;
+            // body...
+          },
+          items: function () {
+            return $scope.items;
+          }
+        }
+      });
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+    //  $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+    $scope.openDeposito = function () {
+    var dato="";
+      var datosCuenta="";
+      var item="";
+      var modalInstance = $modal.open({
+        templateUrl: 'modalDeposito.html',
+        controller: 'ModalInstanceCtrl',
+        size: 'sm',
+        resolve: {
+
+           dato: function  () {
+            return item;
+            // body...
+          },
+           datosCuenta: function  () {
+            return datosCuenta;
+            // body...
+          },
+          items: function () {
+            return $scope.items;
+          }
+        }
+      });
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+   //   $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+ $scope.openSolicitud = function () {
+    var dato="";
+      var datosCuenta="";
+      var item="";
+      
+      var modalInstance = $modal.open({
+        templateUrl: 'modalSolicitud.html',
+        controller: 'ModalInstanceCtrl',
+        size: 'lg',
+        resolve: {
+
+           dato: function  () {
+            return item;
+            // body...
+          },
+           datosCuenta: function  () {
+            return datosCuenta;
+            // body...
+          },
+          items: function () {
+            return $scope.items;
+          }
+        }
+      });
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+     // $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+
+
+   $scope.openPago = function () {
+    var dato="";
+      var datosCuenta="";
+      var item="";
+      var modalInstance = $modal.open({
+        templateUrl: 'modalPago.html',
+        controller: 'ModalInstanceCtrl',
+        size: 'lg',
+        resolve: {
+
+           dato: function  () {
+            return item;
+            // body...
+          },
+           datosCuenta: function  () {
+            return datosCuenta;
+            // body...
+          },
+          items: function () {
+            return $scope.items;
+          }
+        }
+      });
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+     // $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+
+   $scope.openRetiro = function () {
+    var dato="";
+      var datosCuenta="";
+      var item="";
+      var modalInstance = $modal.open({
+        templateUrl: 'modalRetiro.html',
+        controller: 'ModalInstanceCtrl',
+        size: 'sm',
+        resolve: {
+
+           dato: function  () {
+            return item;
+            // body...
+          },
+           datosCuenta: function  () {
+            return datosCuenta;
+            // body...
+          },
+          items: function () {
+            return $scope.items;
+          }
+        }
+      });
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+     // $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+
+
+  $scope.dato=[];
+  $scope.openCompra = function (item) {
+    // var identificador=item.id;
+    // MyService.data.identificador = identificador;
+
+var dato="";
+      var datosCuenta="";
+      var item={};
+    // $scope.item.valorCcp=MyService.data.valorCcp;
+  
+      var modalInstance = $modal.open({
+        templateUrl: 'modalCompra.html',
+        controller: 'ModalInstanceCtrl',
+        size: 'sm',
+        resolve: {
+
+           dato: function  () {
+            return item;
+            // body...
+          },
+           datosCuenta: function  () {
+            return datosCuenta;
+            // body...
+          },
+          items: function () {
+            return $scope.items;
+          }
+        }
+      });
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+    //  $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+  $scope.openTraspaso = function (item) {
+    // var identificador=item.id;
+    // MyService.data.identificador = identificador;
+
+var dato="";
+      var datosCuenta="";
+      var item="";
+
+  
+      var modalInstance = $modal.open({
+        templateUrl: 'modalTraspaso.html',
+        controller: 'ModalInstanceCtrl',
+        size: 'sm',
+        resolve: {
+
+           dato: function  () {
+            return item;
+            // body...
+          },
+           datosCuenta: function  () {
+            return datosCuenta;
+            // body...
+          },
+          items: function () {
+            return $scope.items;
+          }
+        }
+      });
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      //$log.info('Modal dismissed at: ' + new Date());
     });
   };
   $scope.openAlimento = function (item) {
@@ -41,7 +312,7 @@ app
     modalInstance.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
+      //$log.info('Modal dismissed at: ' + new Date());
     });
   };
   $scope.openListadoAlimentos = function (item) {
@@ -60,7 +331,7 @@ app
     modalInstance.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
+     // $log.info('Modal dismissed at: ' + new Date());
     });
   };
    $scope.openMedicamento = function (item) {
@@ -79,7 +350,7 @@ app
     modalInstance.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
+      //$log.info('Modal dismissed at: ' + new Date());
     });
   };
 

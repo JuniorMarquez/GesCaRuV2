@@ -17,6 +17,7 @@
     "HEADER" : "Menu",
     "DASHBOARD" : "Dashboard",
     "CALENDAR" : "Calendar",
+    "CREDITOS" : "Credits",
     "EMAIL" : "Email",
     "DISCOS" : "Discos",
     "WIDGETS" : "Widgets",

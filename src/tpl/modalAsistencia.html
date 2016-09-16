@@ -1,30 +1,50 @@
 <div class="modal-header">
-    <h3 class="modal-title">Registrar asistencia</h3>
+    <h3 class="modal-title">Registro asistencia</h3>
+    
 </div>
-<div class="modal-body" ng-controller="SocioCtrl">
+<div class="wrapper-md" ng-init="entrar4()">
+ <p>Indique por favor el registro a utilizar</p>
+        
+         <div class="row" >
+            <div class="form-group col-sm-12" >
+                      <ui-select ng-model="item.registro" theme="bootstrap" required>
+                        <ui-select-match placeholder="Descripcion ...">{{$select.selected.descripcion}}</ui-select-match>
+                        <ui-select-choices group-by="'descripcion'" repeat="item as item in registros | filter: $select.search">
+                          <span ng-bind-html="item.descripcion | highlight: $select.search"></span>
+                         
+                          
+                        </ui-select-choices>
+                      </ui-select>
 
 
-            <div class="form-group">
-          
-                  <div class="row  col-sm-10" ><i class="icon-calendar"></i> Fecha de asistencia</div>
-                  
-                       <div class="row col-sm-8">
-                                 <p class="input-group"  >
-                                 <input type="text" class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="item.fechaAsistencia" is-open="opened" max-date="minDate"  datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true"  />
-                  <span class="input-group-btn">
-                  <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                  </span>
-                  </p>  
-                       </div>
-                                   
-                </div>
+          </div> 
+          </div>
 
-            <div >
-            <textarea class="form-control" rows="1" name="observaciones"   ng-model="item.observaciones"placeholder="observaciones" required="true"></textarea>
+<p>Socio asistente</p>
 
-            </div>
+
+         <div class="row" >
+            <div class="form-group col-sm-8" >
+                      <ui-select ng-model="item.socio" theme="bootstrap" required>
+                        <ui-select-match placeholder="Cédula ...">{{$select.selected.cedula}}</ui-select-match>
+                        <ui-select-choices group-by="'nombre'" repeat="item as item in socios| filter: $select.search">
+                          <span ng-bind-html="item.cedula | highlight: $select.search"></span>
+                         
+                          
+                        </ui-select-choices>
+                      </ui-select>
+
+
+          </div> 
+          </div>
+      
+
 </div>
+
+ 
 <div class="modal-footer">                  
-    <button class="btn btn-default" ng-click="cancel()">Cancelar</button>
-    <button class="btn btn-primary" ng-click="okAsistencia(item)">OK</button>
+          <button class="btn btn-default btn-xs" ng-click="cancel()">Cancelar</button>
+          <button class="btn btn-success btn-xs" ng-click="okRegAsistenciaQuede(item)">Registrar</button>
+           <button class="btn btn-primary btn-xs" ng-click="okRegAsistenciaSalir(item)">Registrar y salir</button>
 </div>
+

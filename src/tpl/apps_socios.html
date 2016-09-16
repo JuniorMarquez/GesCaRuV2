@@ -21,8 +21,9 @@
            template" id="modalTratamiento.html">
             <div ng-include="'tpl/modalTratamiento.html'"></div>
           </script>
-           <script type="text/ng-template" id="modalOperacionesCcp.html">
-            <div ng-include="'tpl/modalOperacionesCcp.html'"></div>
+            
+          <script type="text/ng-template" id="modalCcp.html">
+            <div ng-include="'tpl/modalCcp.html'"></div>
           </script>
 <div class="hbox hbox-auto-xs hbox-auto-sm bg-light " ng-init="
   app.settings.asideFixed = true;
@@ -107,20 +108,25 @@
             <div class="wrapper-lg">
               <div class="hbox h-auto m-b-lg">
                 <div class="col text-center w-sm">
+
                   <div class="thumb-lg avatar inline">
                     <img src="img/display4.png" ng-show="item.nombres">
 
 
 
+
                    <!--  <img ng-src="{{item.avatar}}" ng-show="item.avatar"> -->
                   </div>
+
                 </div>
+                 <div ng-hide="item.editing || !item" class="h4 pull-right" >C.C.P <span class="badge bg-info">{{item.totalCcp}} </span></div> 
                 <div class="col-sm-10 v-middle font-thin">
                  
 
                   <div ng-hide="item.editing" class="h3" >{{item.nombres}} {{item.apellidos}} {{ item.mensajeNuevo }}</div>     
                          
                   <div ng-hide="item.editing || !item" class="h4" >C.I. {{item.cedula}} </div> 
+
                          
                   <div ng-show="item.editing" class="h3">
                     <input type="text" placeholder="Nombres" class="form-control w-auto input-lg m-b-n-xxs font-bold" ng-model="item.nombres" >
@@ -295,27 +301,27 @@
   
                 <div class="hbox text-center b-b b-light text-sm">  
                        
-                  <a href class="col padder-v text-muted b-r b-light" ng-click="openAsistencia(item)">
+                 <!--  <a href class="col padder-v text-muted b-r b-light" ng-click="openAsistencia(item)">
                     <i class="fa fa-flask block m-b-xs fa-2x" ></i>
                     <span>Asistencia</span>
-                  </a>
+                  </a> -->
                   
                   <a href class="col padder-v text-muted b-r b-light" ng-click="validadorCuentaAhorro(item)">
                     <i class="fa fa-newspaper-o block m-b-xs fa-2x"></i>
                     <span>Cuenta de ahorro</span>
                   </a>
-
-                </div>
-                <div class="hbox text-center text-sm">          
-                 
-                   <a href class="col padder-v text-muted"  ng-click="openOperacionesCcp(item)">
+                  <a href class="col padder-v text-muted b-r b-light"  ng-click="openCcp(item)">
                     <i class="fa fa-cc block m-b-xs fa-2x"></i>
                     <span>Operaciones CCP</span>
                   </a>
-                  <a href class="col padder-v text-muted" ng-click="openTratamiento(item)">
+                  <a href class="col padder-v text-muted b-r b-light" ng-click="openTratamiento(item)">
                     <i class="fa  fa-folder-open block m-b-xs fa-2x"></i>
                     <span>Créditos</span>
                   </a>
+                </div>
+                <div class="hbox text-center text-sm">          
+                 
+                   
                 
                 </div>
               </div>

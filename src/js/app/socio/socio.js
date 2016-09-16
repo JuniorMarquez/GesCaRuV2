@@ -165,34 +165,47 @@ $scope.selectItem2 = function(item){
       $log.info('Modal dismissed at: ' + new Date());
     });
   };
-  $scope.validadorCuentaAhorro=function (item){
+
+  $scope.validadorCuentaAhorro=function (item,$timeout){
 
 
      $http.get('http://localhost:1340/cuent/?idCaja='+MyService.data.idCaja).then(function (resp) {
     $scope.cuentas = resp.data.results;
         var validadorCuenta='false';
+        var datosCuenta ={};
+        // var $scope.tabla=[];
     for (var i= 0; i < $scope.cuentas.length ; i++){
             if  ($scope.cuentas[i].idSocio==item.id){
               validadorCuenta = 'true';
-              var datosCuenta=$scope.cuentas[i];
+              datosCuenta=$scope.cuentas[i];
             }
           }
-          if (validadorCuenta=='true'){ $scope.openCuentaAhorro(item,datosCuenta);}
+          if (validadorCuenta=='true'){ 
+          
+              // item.operaciones=$scope.tabla;
+              // item.tbOptions3.data = $scope.tabla;
+       
+            $scope.openCuentaAhorro(item,datosCuenta);}
           if (validadorCuenta=='false'){
-            var datosCuenta=null;
+           datosCuenta=null;
+           dato=null;
+           items=null;
            $scope.openAperturaCuentaAhorro(item);}
   });
      
         
   };
-  $scope.openCuentaAhorro = function (item,datosCuenta) {
+
+    $scope.openCcp = function (item,datosCuenta) {
     var identificador=item.id;
+    var tabla2=[];
     MyService.data.identificador = identificador;
       var modalInstance = $modal.open({
-        templateUrl: 'modalCuentaAhorro.html',
+        templateUrl: 'modalCcp.html',
         controller: 'ModalInstanceCtrl',
         size: 'lg',
         resolve: {
+          
           dato: function  () {
             return item;
             // body...
@@ -209,7 +222,38 @@ $scope.selectItem2 = function(item){
     modalInstance.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
+     
+    });
+  };
+
+
+  $scope.openCuentaAhorro = function (item,datosCuenta) {
+    var identificador=item.id;
+    var tabla=[];
+    MyService.data.identificador = identificador;
+      var modalInstance = $modal.open({
+        templateUrl: 'modalCuentaAhorro.html',
+        controller: 'ModalInstanceCtrl',
+        size: 'lg',
+        resolve: {
+          
+          dato: function  () {
+            return item;
+            // body...
+          },
+          datosCuenta: function  () {
+            return datosCuenta;
+            // body...
+          },
+          items: function () {
+            return $scope.items;
+          }
+        }
+      });
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+     
     });
   };
   $scope.openAperturaCuentaAhorro = function (item,datosCuenta) {
@@ -335,7 +379,7 @@ $scope.selectItem2 = function(item){
       var modalInstance = $modal.open({
         templateUrl: 'modalAsistencia.html',
         controller: 'ModalInstanceCtrl',
-        size: 'sm',
+        size: 'lg',
         resolve: {
           items: function () {
             return $scope.items;
@@ -427,10 +471,22 @@ $scope.selectItem2 = function(item){
       item.editing = false;
     });
     $scope.item = item;
+     $http.get('http://localhost:1340/operacionesCcp/?id_socio='+item.id).then(function (resp) {
+      $scope.operacionesCcp = resp.data.results;
+    });
+     setTimeout(function() {var totalCcp = 0;
+      for (var i= 0; i < $scope.operacionesCcp.length ; i++){
+            totalCcp = totalCcp+parseInt($scope.operacionesCcp[i].cantidad);
+          }
+    $scope.item.totalCcp=totalCcp;}, 500);
+    
+
+
     $scope.item.selected = true;
     $http.get('http://localhost:1340/socio').then(function (resp) {
       $scope.socios = resp.data.results;
     });
+   
   };
 
   $scope.deleteItem = function(item){

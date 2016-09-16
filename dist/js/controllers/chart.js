@@ -5,15 +5,90 @@
 app
   // Flot Chart controller 
   .controller('FlotChartDemoCtrl', ['$scope', '$http','$modal','MyService','$state',function($scope,$http,$modal,MyService,$state) {
-    
-    $scope.openBano = function (item) {
-    // var identificador=item.id;
-    // MyService.data.identificador = identificador;
+  
+
+
+    $scope.openDeposito = function () {
+    var dato="";
+      var datosCuenta="";
+      var item="";
       var modalInstance = $modal.open({
-        templateUrl: 'modalBano.html',
+        templateUrl: 'modalDeposito.html',
         controller: 'ModalInstanceCtrl',
         size: 'sm',
         resolve: {
+
+           dato: function  () {
+            return item;
+            // body...
+          },
+           datosCuenta: function  () {
+            return datosCuenta;
+            // body...
+          },
+          items: function () {
+            return $scope.items;
+          }
+        }
+      });
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+   $scope.openRetiro = function () {
+    var dato="";
+      var datosCuenta="";
+      var item="";
+      var modalInstance = $modal.open({
+        templateUrl: 'modalRetiro.html',
+        controller: 'ModalInstanceCtrl',
+        size: 'sm',
+        resolve: {
+
+           dato: function  () {
+            return item;
+            // body...
+          },
+           datosCuenta: function  () {
+            return datosCuenta;
+            // body...
+          },
+          items: function () {
+            return $scope.items;
+          }
+        }
+      });
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+
+
+  $scope.dato=[];
+  $scope.openCompraTraspaso = function (item) {
+    // var identificador=item.id;
+    // MyService.data.identificador = identificador;
+    var dato=null;
+      var datosCuenta=null;
+      var modalInstance = $modal.open({
+        templateUrl: 'modalCompraTraspaso.html',
+        controller: 'ModalInstanceCtrl',
+        size: 'sm',
+        resolve: {
+
+           dato: function  () {
+            return item;
+            // body...
+          },
+           datosCuenta: function  () {
+            return datosCuenta;
+            // body...
+          },
           items: function () {
             return $scope.items;
           }
@@ -84,14 +159,14 @@ app
   };
 
     // $scope.cargaTiposBanos = function(){
-    //   $http.get('http://localhost:1337/tipoBano/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
+    //   $http.get('http://localhost:1340/tipoBano/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
     //     $scope.tiposBanos = resp.data.results;
     //   });
     // };
     // $scope.cargaTiposBanos()
 
     // $scope.cargaTiposMedicamentos = function(){
-    //   $http.get('http://localhost:1337/tipoMedicamento/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
+    //   $http.get('http://localhost:1340/tipoMedicamento/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
     //     $scope.tiposMedicamentos = resp.data.results;
     //   });
     // };
@@ -106,7 +181,7 @@ app
     //   // var idAnimal=MyService.data.identificador;
     //   // item.idAnimal=idAnimal;
     //   // item.idUsuario=MyService.data.idUsuario;
-    //   $http.post('http://localhost:1337/bano/' ,item);       
+    //   $http.post('http://localhost:1340/bano/' ,item);       
     //   $modalInstance.close($scope.selected.item);
     // //   var pas = item._id;
     // //   $scope.banosFiltrados = $scope.banos.filter(function (bano) {  
@@ -177,39 +252,39 @@ if (typeof MyService.data.idUsuario==="undefined"){
     
 
     };
-     var totalHembras=0;
- var totalMachos=0;
- var totalEnOrdeno=0;
- var totalSecas=0;
- var totalPrenadas=0;
- var totalNoPrenadas=0;
- var totalHembrasJovenes=0;
- var totalVacas=0;
-    $http.get('http://localhost:1337/animal/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
-    $scope.animales = resp.data.results;
-var numero = $scope.animales.length;
+ //     var totalHembras=0;
+ // var totalMachos=0;
+ // var totalEnOrdeno=0;
+ // var totalSecas=0;
+ // var totalPrenadas=0;
+ // var totalNoPrenadas=0;
+ // var totalHembrasJovenes=0;
+ // var totalVacas=0;
+    $http.get('http://localhost:1340/socio/').then(function (resp) {
+    $scope.socios = resp.data.results;
+var numero = $scope.socios.length;
  $scope.total= numero;
- for (var i = 0;i<$scope.animales.length;i++){
-    if ($scope.animales[i].sexo=='Hembra'){totalHembras=totalHembras+1;}
-    if ($scope.animales[i].sexo=='Hembra' &&  $scope.animales[i].estado==true && $scope.animales[i].grupo=='Vacas'){totalEnOrdeno=totalEnOrdeno+1;} 
-    if ($scope.animales[i].sexo=='Hembra' &&  $scope.animales[i].estado==false && $scope.animales[i].grupo=='Vacas'){totalSecas=totalSecas+1;} 
-    if ($scope.animales[i].sexo=='Hembra' && $scope.animales[i].prenez==true){totalPrenadas=totalPrenadas+1;} 
-    if ($scope.animales[i].sexo=='Hembra' &&  $scope.animales[i].prenez==false){totalNoPrenadas=totalNoPrenadas+1};
-    if ($scope.animales[i].sexo=='Hembra' && $scope.animales[i].grupo=='Vacas'){totalVacas=totalVacas+1;} 
-    if ($scope.animales[i].sexo=='Hembra' &&  $scope.animales[i].grupo!='Vacas'){totalHembrasJovenes=totalHembrasJovenes+1};
-    if ($scope.animales[i].sexo=='Macho'){totalMachos=totalMachos+1;} 
+ // for (var i = 0;i<$scope.animales.length;i++){
+ //    // if ($scope.animales[i].sexo=='Hembra'){totalHembras=totalHembras+1;}
+ //    // if ($scope.animales[i].sexo=='Hembra' &&  $scope.animales[i].estado==true && $scope.animales[i].grupo=='Vacas'){totalEnOrdeno=totalEnOrdeno+1;} 
+ //    // if ($scope.animales[i].sexo=='Hembra' &&  $scope.animales[i].estado==false && $scope.animales[i].grupo=='Vacas'){totalSecas=totalSecas+1;} 
+ //    // if ($scope.animales[i].sexo=='Hembra' && $scope.animales[i].prenez==true){totalPrenadas=totalPrenadas+1;} 
+ //    // if ($scope.animales[i].sexo=='Hembra' &&  $scope.animales[i].prenez==false){totalNoPrenadas=totalNoPrenadas+1};
+ //    // if ($scope.animales[i].sexo=='Hembra' && $scope.animales[i].grupo=='Vacas'){totalVacas=totalVacas+1;} 
+ //    // if ($scope.animales[i].sexo=='Hembra' &&  $scope.animales[i].grupo!='Vacas'){totalHembrasJovenes=totalHembrasJovenes+1};
+ //    // if ($scope.animales[i].sexo=='Macho'){totalMachos=totalMachos+1;} 
     
- }
- $scope.totalHembras=totalHembras;
- $scope.totalMachos=totalMachos;
- $scope.totalPrenadas=totalPrenadas;
- $scope.totalSecas=totalSecas;
- $scope.totalNoPrenadas=totalNoPrenadas;
- $scope.totalEnOrdeno=totalEnOrdeno;
- $scope.totalVacas=totalVacas;
- $scope.totalHembrasJovenes=totalHembrasJovenes;
+ // }
+ // $scope.totalHembras=totalHembras;
+ // $scope.totalMachos=totalMachos;
+ // $scope.totalPrenadas=totalPrenadas;
+ // $scope.totalSecas=totalSecas;
+ // $scope.totalNoPrenadas=totalNoPrenadas;
+ // $scope.totalEnOrdeno=totalEnOrdeno;
+ // $scope.totalVacas=totalVacas;
+ // $scope.totalHembrasJovenes=totalHembrasJovenes;
   });
-    $http.get('http://localhost:1337/grupo/?idUsuario='+MyService.data.idUsuario).then(function (resp2) {
+    $http.get('http://localhost:1340/tipousuario/?idCaja='+MyService.data.idCaja).then(function (resp2) {
     $scope.grupos = resp2.data.results;
 var numero2 = $scope.grupos.length;
  $scope.totalGrupos= numero2;
@@ -218,35 +293,35 @@ var numero2 = $scope.grupos.length;
 
     // $scope.d4 = $scope.getRandomData();
 
-$scope.getGraficoPrincipal =function(){
-      $http.get('http://localhost:1337/ordeno/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
-        $scope.ordenosGrafico2 = resp.data.results;
-        var cant = $scope.ordenosGrafico2.length;
-        $scope.cantidadOrdenos=$scope.ordenosGrafico2.length;
-        // $scope.ordenosGrafico2.nombre=MyService.data.animalConsultado.nombre;
-        // $scope.ordenosGrafico2.cant=cant;
-        $scope.dor=[]; 
-        $scope.suma=0;
-        $scope.promedio=0;
-        $scope.ordenosGrafico2=$scope.ordenosGrafico2.reverse();
-        if ($scope.ordenosGrafico2.length>9){
-          var e = $scope.ordenosGrafico2.length;
-          for (var i= 0; i < $scope.ordenosGrafico2.length; i++){
-            var ind = [];
-            ind[i,1]= $scope.ordenosGrafico2[i].cantidad;
-            $scope.suma = $scope.suma +  $scope.ordenosGrafico2[i].cantidad;
-            $scope.promedio=$scope.suma/$scope.ordenosGrafico2.length;
-            ind[e,0]=e;
-            e=e-1;
-            $scope.dor[i]=ind;
-            $scope.d4=$scope.dor;
-          }
-        }
+// $scope.getGraficoPrincipal =function(){
+//       $http.get('http://localhost:1340/ordeno/?idUsuario='+MyService.data.idUsuario).then(function (resp) {
+//         $scope.ordenosGrafico2 = resp.data.results;
+//         var cant = $scope.ordenosGrafico2.length;
+//         $scope.cantidadOrdenos=$scope.ordenosGrafico2.length;
+//         // $scope.ordenosGrafico2.nombre=MyService.data.animalConsultado.nombre;
+//         // $scope.ordenosGrafico2.cant=cant;
+//         $scope.dor=[]; 
+//         $scope.suma=0;
+//         $scope.promedio=0;
+//         $scope.ordenosGrafico2=$scope.ordenosGrafico2.reverse();
+//         if ($scope.ordenosGrafico2.length>9){
+//           var e = $scope.ordenosGrafico2.length;
+//           for (var i= 0; i < $scope.ordenosGrafico2.length; i++){
+//             var ind = [];
+//             ind[i,1]= $scope.ordenosGrafico2[i].cantidad;
+//             $scope.suma = $scope.suma +  $scope.ordenosGrafico2[i].cantidad;
+//             $scope.promedio=$scope.suma/$scope.ordenosGrafico2.length;
+//             ind[e,0]=e;
+//             e=e-1;
+//             $scope.dor[i]=ind;
+//             $scope.d4=$scope.dor;
+//           }
+//         }
 
-        $scope.d4=$scope.d4.reverse();
-      }); 
-    };
-    $scope.getGraficoPrincipal();    
+//         $scope.d4=$scope.d4.reverse();
+//       }); 
+//     };
+//     $scope.getGraficoPrincipal();    
 
 
 

@@ -569,6 +569,21 @@ angular.module('app')
                   }
                  
               })
+.state('apps.credito', {
+                  url: '/credito',
+                  templateUrl: 'tpl/apps_credito.html',
+                   resolve: {
+                      deps: ['$ocLazyLoad',
+                        function( $ocLazyLoad ){
+                          return $ocLazyLoad.load(['ui.select','ngGrid']).then(
+                              function(){
+                                  return $ocLazyLoad.load('js/app/socio/credito.js');
+                              }
+                          );
+                      }]
+                  }
+                 
+              })
 .state('apps.historicoAnimalMacho', {
                   url: '/historicoAnimalMacho',
                   templateUrl: 'tpl/apps_historicoAnimalMacho.html',

@@ -16,6 +16,7 @@
   "nav" : {
     "HEADER" : "Menu",
     "DASHBOARD" : "Panel de control",
+    "CREDITOS" : "Créditos",
     "CALENDAR" : "Calendar",
     "EMAIL" : "Email",
     "DISCOS" : "Discos",

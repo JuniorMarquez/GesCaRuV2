@@ -1,35 +1,18 @@
 <div class="modal-header">
-    <h3 class="modal-title">Registrar Baño</h3>
+    <h3 class="modal-title"> <i class="glyphicon glyphicon-trash" ></i> Borrar animal</h3>
 </div>
 <div class="modal-body">
-    <!-- <ul>
-        <li ng-repeat="item in items">
-            <a ng-click="selected.item = item">{{ item }}</a>
-        </li>
-    </ul>
-    Selected: <b>{{ selected.item }}</b> -->
-
-     <input type="text" class="form-control" placeholder="tipo de baño" ng-model="item.tipoBano" > 
-    
-     <div class="row" >
-    <div class="form-group">
-
-<div class="col-md-6">
-             
-                <input placeholder="cantidad"type="number" class="form-control" 
-               ng-model="item.cantidad" 
-               id="cantidad"   min="1" 
-               >
-             </div>  
-
-             
-       
-         
-       
+ 
+      <div class="row" >
+        <div class="form-group">
+          <div class="col-sm-12">
+            {{mensajeBorrado}}
+          </div>  
+        </div>
       </div>
 </div>
 </div>
 <div class="modal-footer">                  
-    <button class="btn btn-default" ng-click="cancel()">Cancelar</button>
-    <button class="btn btn-primary" ng-click="okBano(item)">OK</button>
+    <button class="btn btn-default" id="no"ng-click="cancel()">No</button>
+    <button class="btn btn-danger" ng-click="okConfirm(item)">Si</button>
 </div>

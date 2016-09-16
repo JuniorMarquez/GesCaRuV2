@@ -4,11 +4,35 @@
            <script type="text/ng-template" id="modalDeposito.html">
             <div ng-include="'tpl/modalDeposito.html'"></div>
           </script>
-           <script type="text/ng-template" id="modalAlimento.html">
-            <div ng-include="'tpl/modalAlimento.html'"></div>
+             <script type="text/ng-template" id="modalRetiro.html">
+            <div ng-include="'tpl/modalRetiro.html'"></div>
+          </script>
+           <script type="text/ng-template" id="modalSolicitud.html">
+            <div ng-include="'tpl/modalSolicitud.html'"></div>
           </script>
            <script type="text/ng-template" id="modalListadoAlimentos.html">
             <div ng-include="'tpl/modalListadoAlimentos.html'"></div>
+          </script>
+           <script type="text/ng-template" id="modalCompra.html">
+            <div ng-include="'tpl/modalCompra.html'"></div>
+          </script>
+           <script type="text/ng-template" id="modalTraspaso.html">
+            <div ng-include="'tpl/modalTraspaso.html'"></div>
+          </script>
+          <script type="text/ng-template" id="modalEgreso.html">
+            <div ng-include="'tpl/modalEgreso.html'"></div>
+          </script>
+          <script type="text/ng-template" id="modalIngreso.html">
+            <div ng-include="'tpl/modalIngreso.html'"></div>
+          </script>
+           <script type="text/ng-template" id="modalPago.html">
+            <div ng-include="'tpl/modalPago.html'"></div>
+          </script>
+          <script type="text/ng-template" id="modalRegAsistencia.html">
+            <div ng-include="'tpl/modalRegAsistencia.html'"></div>
+          </script>
+          <script type="text/ng-template" id="modalAsistencia.html">
+            <div ng-include="'tpl/modalAsistencia.html'"></div>
           </script>
 
 
@@ -60,7 +84,7 @@
                           <a ng-click="openDeposito()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Registrar depósito</a>
                         </li>
                         <li>
-                          <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Registar retiro</a>
+                          <a ng-click="openRetiro()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Registar retiro</a>
                         </li>
                         
                       </ul>
@@ -74,10 +98,10 @@
                     <div class="col-xs-12">
                       <ul class="list-unstyled l-h-2x">
                         <li>
-                          <a ng-click="openBano()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs" ></i>Registrar nueva solicitud</a>
+                          <a ng-click="openSolicitud()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs" ></i>Registrar nueva solicitud</a>
                         </li>
                         <li>
-                          <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Registrar pago</a>
+                          <a ng-click="openPago()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Registrar pago</a>
                         </li>
                         
                         
@@ -92,11 +116,46 @@
                     <div class="col-xs-12">
                       <ul class="list-unstyled l-h-2x">
                         <li>
-                          <a ng-click="openAlimento()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Registrar compra o traspaso de CCP</a>
+                          <a ng-click="openCompra()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Registrar compra de CCP</a>
                         </li>
-                        <!-- <li>
-                          <a ng-click="openListadoAlimentos()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Ver listado</a>
-                        </li> -->
+                        <li>
+                          <a ng-click="openTraspaso()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Registrar traspaso de CCP</a>
+                        </li>
+                        
+                      </ul>
+                    </div>
+                    
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="m-l-xs m-t-xs m-b-xs font-bold">Asistencia <!-- <span class="badge badge-sm bg-danger">13</span> --></div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <ul class="list-unstyled l-h-2x">
+                        <li>
+                          <a ng-click="openRegAsistencia()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Nuevo registro </a>
+                        </li>
+                        <li>
+                          <a ng-click="openAsistencia()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Registrar asistencia</a>
+                        </li>
+                        
+                      </ul>
+                    </div>
+                    
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <div class="m-l-xs m-t-xs m-b-xs font-bold">Otras operaciones <!-- <span class="badge badge-sm bg-danger">13</span> --></div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <ul class="list-unstyled l-h-2x">
+                        <li>
+                          <a ng-click="openEgreso()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Registrar egreso</a>
+                        </li>
+                        <li>
+                          <a ng-click="openIngreso()"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Registrar ingreso</a>
+                        </li>
                         
                       </ul>
                     </div>

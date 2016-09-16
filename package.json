@@ -54,6 +54,7 @@
     "grunt-recess": "^1.0.0",
     "gruntfile-gtx": "^0.3.0",
     "http-server": "^0.6.1",
+    "nw-builder": "^3.0.0",
     "require-directory": "^2.0.0"
   }
 }

@@ -1,0 +1,37 @@
+
+<div class="modal-header">
+    <h3 class="modal-title">Aprobación de crédito</h3>
+    
+</div>
+<div class="wrapper-md">
+
+<h5>Monto: {{item.datosCuenta.montoSolicitado |number:2}}</h5>
+<h5>Monto a pagar por concepto de intereses: {{item.datosCuenta.montoIntereses |number:2}}</h5>
+<h5>Monto total a pagar: {{item.datosCuenta.montoTotalAPagar |number:2 }}</h5>
+<h5>Plazo: {{item.datosCuenta.numeroMeses*30}} días</h5>
+
+<h4>Cálculo de plazo a otorgar</h4>
+ <div class="row col-md-18">
+     <div class="col-md-6">
+     <!--    <div class="m-b-lg"> -->
+        
+
+        <h5>Fecha de liquidación {{item.datosCuenta.fechaLiquidacion | date:'fullDate' }}</h5>
+
+        
+          <datepicker ng-model="item.datosCuenta.fechaLiquidacion" ng-change="calculoNuevo(item)" min-date="minDate" show-weeks="true" class="datepicker"></datepicker>
+        
+    </div>
+     
+    <div class="col-md-6">
+        <h5>Fecha de Vencimiento {{item.datosCuenta.fechaVencimiento | date:'fullDate' }}</h5>
+     
+          <datepicker ng-model="item.datosCuenta.fechaVencimiento" ng-change="calculoNuevo(item)" min-date="minDate" show-weeks="true" class="datepicker"></datepicker>
+   
+   
+      </div>
+    </div>
+  </div>
+
+
+
